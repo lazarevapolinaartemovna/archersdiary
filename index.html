@@ -70,6 +70,15 @@
 #archer-app .radios{display:flex;flex-direction:column;gap:6px}
 #archer-app .radios .opt{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer}
 #archer-app .radios .opt input{width:auto}
+#archer-app .hint{font-size:13px;line-height:1.45;color:var(--mut);background:rgba(31,111,80,.07);border-left:3px solid var(--acc);padding:8px 10px;border-radius:0 8px 8px 0;margin-top:4px}
+#archer-app .targetbox{display:flex;flex-direction:column;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px}
+#archer-app #targetSvg{width:210px;max-width:100%;height:auto;cursor:crosshair;touch-action:manipulation}
+#archer-app .targetctl{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
+#archer-app .radioshead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#archer-app .autobox{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+#archer-app .btnrow{display:flex;gap:6px;flex-wrap:wrap}
+#archer-app .chip{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--ink);font-family:inherit}
+#archer-app .chip.on{border-color:var(--acc);background:rgba(31,111,80,.1);color:var(--acc);font-weight:600}
 #archer-app .tablewrap{overflow-x:auto}
 #archer-app svg text{font-family:inherit}
 @media (max-width:520px){#archer-app h1{font-size:26px}#archer-app .main{padding-top:20px}}
@@ -118,18 +127,66 @@
         <h2>Ввод результатов стрельбы</h2>
         <label>Дата тренировки<input type="date" id="entryDate" required></label>
         <label>Дистанция, м<input type="number" id="entryDist" min="0" step="any" placeholder="например, 18" required></label>
+        <div class="targetbox">
+          <span class="mini">Мишень — кликните, куда попала стрела (клик мимо колец — промах)</span>
+          <svg id="targetSvg" viewBox="0 0 220 220" role="img" aria-label="Мишень для ввода попаданий">
+            <circle cx="110" cy="110" r="105" fill="none" stroke="#d8d5cc" stroke-dasharray="4 4"/>
+            <circle cx="110" cy="110" r="100" fill="#f7f6f2" stroke="#d8d5cc"/>
+            <circle cx="110" cy="110" r="90" fill="#fdfdfb" stroke="#e3e1d8"/>
+            <circle cx="110" cy="110" r="80" fill="#33342f" stroke="#22231f"/>
+            <circle cx="110" cy="110" r="70" fill="#3d3f39" stroke="#2b2c27"/>
+            <circle cx="110" cy="110" r="60" fill="#4f86d8" stroke="#3d72c4"/>
+            <circle cx="110" cy="110" r="50" fill="#5c91de" stroke="#4a7fcb"/>
+            <circle cx="110" cy="110" r="40" fill="#e05243" stroke="#c9402f"/>
+            <circle cx="110" cy="110" r="30" fill="#e6634f" stroke="#d04e39"/>
+            <circle cx="110" cy="110" r="20" fill="#f4c84f" stroke="#e2b52f"/>
+            <circle cx="110" cy="110" r="10" fill="#f9d96b" stroke="#e2b52f"/>
+          </svg>
+          <div class="targetctl">
+            <span id="seriesInfo" class="mini">Стрел: 0 · Сумма: 0</span>
+            <button type="button" id="undoArrow" class="linkbtn">Отменить стрелу</button>
+            <button type="button" id="resetSeries" class="linkbtn">Сбросить серию</button>
+          </div>
+        </div>
         <label>Количество выстрелов<input type="number" id="entryShots" min="0" step="1" placeholder="например, 60"></label>
         <label>Количество попаданий<input type="number" id="entryHits" min="0" step="1" placeholder="например, 54"></label>
-        <label>Набранные очки<input type="number" id="entryScore" min="0" step="1" placeholder="например, 280" required></label>
-        <label>Средний балл<input type="number" id="entryAvg" min="0" step="any" placeholder="например, 8,4"></label>
+        <label>Набранные очки<input type="number" id="entryScore" min="0" step="1" placeholder="например, 280" required><span id="scoreOf" class="mini"></span></label>
+        <label>Средний балл (авто)<input type="number" id="entryAvg" min="0" step="any" placeholder="посчитается сам" readonly><span id="rankInfo" class="mini"></span></label>
         <div class="radios">
-          <span class="mini">Систематическая ошибка</span>
+          <div class="radioshead">
+            <span class="mini">Систематическая ошибка</span>
+            <button type="button" id="autoErrorBtn" class="linkbtn">🤖 Определить автоматически</button>
+          </div>
           <label class="opt"><input type="radio" name="entryError" value="Ошибок нет" checked>Ошибок нет</label>
           <label class="opt"><input type="radio" name="entryError" value="Сдёргивание на выпуске">Сдёргивание на выпуске</label>
           <label class="opt"><input type="radio" name="entryError" value="Завал лука">Завал лука</label>
           <label class="opt"><input type="radio" name="entryError" value="Опускание левой руки">Опускание левой руки</label>
-          <label class="opt"><input type="radio" name="entryError" value="Недотяг тетевы">Недотяг тетевы</label>
+          <label class="opt"><input type="radio" name="entryError" value="Недотяг тетивы">Недотяг тетивы</label>
           <label class="opt"><input type="radio" name="entryError" value="Передерживание прицела">Передерживание прицела</label>
+          <div id="errorHint" class="hint"></div>
+          <div id="autoErrorBox" class="autobox" style="display:none">
+            <span class="mini">1. Куда в основном уходили плохие стрелы?</span>
+            <div class="btnrow" id="dirRow">
+              <button type="button" class="chip" data-dir="up">Вверх</button>
+              <button type="button" class="chip" data-dir="down">Вниз</button>
+              <button type="button" class="chip" data-dir="left">Влево</button>
+              <button type="button" class="chip" data-dir="right">Вправо</button>
+            </div>
+            <span class="mini">2. Вы правша или левша?</span>
+            <div class="btnrow" id="handRow">
+              <button type="button" class="chip" data-hand="r">Правша</button>
+              <button type="button" class="chip" data-hand="l">Левша</button>
+            </div>
+            <div id="downFollow" style="display:none">
+              <span class="mini">Стреляющая рука после выстрела?</span>
+              <div class="btnrow" id="downRow">
+                <button type="button" class="chip" data-down="hand">Опускается сразу</button>
+                <button type="button" class="chip" data-down="anchor">Остаётся на месте до попадания</button>
+              </div>
+            </div>
+            <div id="autoResult" class="hint" style="display:none"></div>
+            <button type="button" id="autoClose" class="linkbtn">Закрыть</button>
+          </div>
         </div>
         <div id="entryOk" class="ok"></div>
         <button class="btn" type="submit">Сохранить</button>
@@ -173,6 +230,77 @@
   var dataKey = function (u) { return 'archerData:' + u; };
   var state = { user: null };
   var authMode = 'register';
+
+  var ERROR_HINTS = {
+    'Ошибок нет': 'Так держать! Записывайте тренировки регулярно — так проще заметить, когда техника начинает «плыть».',
+    'Сдёргивание на выпуске': 'Выпуск должен быть мягким: тетива сама сходит с пальцев, рука расслаблена. Упражнение: «пустой щелчок» — выпуск без мишени, 10–15 раз перед стрельбой.',
+    'Завал лука': 'Держите лук вертикально на всех этапах выстрела. Проверяйте себя по отражению в окне или зеркалу — наклон часто появляется только под усталостью.',
+    'Опускание левой руки': 'Сохраняйте рабочее положение руки до попадания стрелы: считайте «раз-два-три» после выпуска. Упражнение: задержка финиша 3 секунды на каждом выстреле.',
+    'Недотяг тетивы': 'Дотягивайте до полного анкера: кость под челюстью, тетива у носа. Помогает тренировка с экспандером перед зеркалом — 2–3 подхода в день.',
+    'Передерживание прицела': 'Не зависайте в прицеливании дольше 3–5 секунд — точность падает. Стреляйте в ритме «натяжение — прицел — выпуск»; если не выстрелили за 5 секунд, отпустите и начните заново.'
+  };
+
+  function refreshErrorHint() {
+    var el = app.querySelector('input[name="entryError"]:checked');
+    $('#errorHint').textContent = el && ERROR_HINTS[el.value] ? ERROR_HINTS[el.value] : '';
+  }
+  app.querySelector('.radios').addEventListener('change', refreshErrorHint);
+
+  var autoState = { dir: '', hand: '', down: '' };
+
+  function autoApply() {
+    if (!autoState.dir || !autoState.hand) return;
+    if (autoState.dir === 'down' && !autoState.down) return;
+    var dir = autoState.dir;
+    if (autoState.hand === 'l') {
+      if (dir === 'left') dir = 'right';
+      else if (dir === 'right') dir = 'left';
+    }
+    var err = dir === 'up' ? 'Передерживание прицела'
+      : dir === 'left' ? 'Завал лука'
+      : dir === 'right' ? 'Сдёргивание на выпуске'
+      : (autoState.down === 'hand' ? 'Опускание левой руки' : 'Недотяг тетивы');
+    var input = app.querySelector('input[name="entryError"][value="' + err + '"]');
+    if (input) {
+      input.checked = true;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    var resBox = $('#autoResult');
+    resBox.style.display = '';
+    resBox.textContent = 'Похоже, это «' + err + '» — вариант отмечен, подсказка по исправлению обновлена ниже. Не подходит? Выберите вручную.';
+  }
+
+  $('#autoErrorBtn').addEventListener('click', function () {
+    var box = $('#autoErrorBox');
+    var opening = box.style.display === 'none';
+    box.style.display = opening ? 'flex' : 'none';
+    if (opening) {
+      autoState = { dir: '', hand: '', down: '' };
+      app.querySelectorAll('.autobox .chip').forEach(function (c) { c.classList.remove('on'); });
+      $('#downFollow').style.display = 'none';
+      $('#autoResult').style.display = 'none';
+    }
+  });
+  $('#autoClose').addEventListener('click', function () { $('#autoErrorBox').style.display = 'none'; });
+
+  $('#autoErrorBox').addEventListener('click', function (e) {
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    var row = chip.parentElement;
+    row.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+    chip.classList.add('on');
+    if (chip.hasAttribute('data-dir')) {
+      autoState.dir = chip.getAttribute('data-dir');
+      autoState.down = '';
+      $('#downFollow').style.display = autoState.dir === 'down' ? '' : 'none';
+      app.querySelectorAll('#downRow .chip').forEach(function (c) { c.classList.remove('on'); });
+    } else if (chip.hasAttribute('data-hand')) {
+      autoState.hand = chip.getAttribute('data-hand');
+    } else if (chip.hasAttribute('data-down')) {
+      autoState.down = chip.getAttribute('data-down');
+    }
+    autoApply();
+  });
 
   function getUsers() { try { return JSON.parse(localStorage.getItem(LS_USERS)) || {}; } catch (e) { return {}; } }
   function getEntries() {
@@ -247,6 +375,94 @@
     go('landing');
   });
 
+  var RANK_STEPS = [
+    [18, { r3: 55, r2: 63, r1: 71, kms: 79 }],
+    [30, { r3: 53, r2: 61, r1: 69, kms: 78 }],
+    [50, { r3: 52, r2: 60, r1: 68, kms: 77 }],
+    [70, { r3: 50, r2: 58, r1: 67, kms: 76 }],
+    [90, { r3: 50, r2: 58, r1: 66, kms: 75 }]
+  ];
+
+  function updateDerived(e) {
+    if (e && e.target && e.target.id !== 'entryScore' && e.target.id !== 'entryShots' && e.target.id !== 'entryDist') return;
+    var score = parseFloat($('#entryScore').value);
+    var shots = parseInt($('#entryShots').value, 10);
+    var dist = parseFloat($('#entryDist').value);
+    $('#entryAvg').value = (isFinite(score) && isFinite(shots) && shots > 0)
+      ? Math.round(score / shots * 100) / 100
+      : '';
+    var pct = (isFinite(score) && isFinite(shots) && shots > 0 && score >= 0)
+      ? Math.round(score / (shots * 10) * 1000) / 10
+      : null;
+    $('#scoreOf').textContent = pct === null
+      ? ''
+      : 'Набрано очков: ' + Math.round(score) + ' из ' + shots * 10 + ' возможных (' + pct + '%)';
+    if (pct !== null && isFinite(dist) && dist > 0) {
+      var th = RANK_STEPS[0][1];
+      for (var i = 0; i < RANK_STEPS.length; i++) if (dist >= RANK_STEPS[i][0]) th = RANK_STEPS[i][1];
+      var rank = pct >= th.kms ? 'КМС'
+        : pct >= th.r1 ? '1-й спортивный разряд'
+        : pct >= th.r2 ? '2-й спортивный разряд'
+        : pct >= th.r3 ? '3-й спортивный разряд'
+        : '';
+      $('#rankInfo').textContent = rank
+        ? 'Дистанция ' + dist + ' м · ' + pct + '% — соответствует: ' + rank + ' (ориентировочно)'
+        : 'Дистанция ' + dist + ' м · ' + pct + '% — пока ниже 3-го разряда';
+    } else {
+      $('#rankInfo').textContent = '';
+    }
+  }
+  $('#entryForm').addEventListener('input', updateDerived);
+  $('#entryForm').addEventListener('change', updateDerived);
+
+  var series = [];
+  var targetSvg = $('#targetSvg');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var arrowLayer = document.createElementNS(SVGNS, 'g');
+  targetSvg.appendChild(arrowLayer);
+
+  function seriesRefresh() {
+    var sum = 0, miss = 0;
+    series.forEach(function (v) { sum += v; if (!v) miss++; });
+    $('#seriesInfo').textContent = 'Стрел: ' + series.length + ' · Сумма: ' + sum + (miss ? ' · Промахи: ' + miss : '');
+    $('#entryShots').value = series.length || '';
+    $('#entryScore').value = series.length ? sum : '';
+    $('#entryHits').value = series.length ? (series.length - miss) : '';
+    ['entryShots', 'entryScore'].forEach(function (id) {
+      document.getElementById(id).dispatchEvent(new Event('input', { bubbles: true }));
+    });
+  }
+
+  targetSvg.addEventListener('click', function (e) {
+    var rect = targetSvg.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width * 220;
+    var y = (e.clientY - rect.top) / rect.height * 220;
+    var d = Math.sqrt((x - 110) * (x - 110) + (y - 110) * (y - 110));
+    var val = d > 100 ? 0 : Math.max(1, 10 - Math.floor(d / 10));
+    series.push(val);
+    var dot = document.createElementNS(SVGNS, 'circle');
+    dot.setAttribute('cx', x.toFixed(1));
+    dot.setAttribute('cy', y.toFixed(1));
+    dot.setAttribute('r', '2.4');
+    dot.setAttribute('fill', val === 0 ? '#a8b0a9' : 'rgba(20,25,22,.85)');
+    dot.setAttribute('stroke', '#fff');
+    dot.setAttribute('stroke-width', '.6');
+    arrowLayer.appendChild(dot);
+    seriesRefresh();
+  });
+
+  $('#undoArrow').addEventListener('click', function () {
+    if (!series.length) return;
+    series.pop();
+    if (arrowLayer.lastChild) arrowLayer.removeChild(arrowLayer.lastChild);
+    seriesRefresh();
+  });
+  $('#resetSeries').addEventListener('click', function () {
+    series = [];
+    arrowLayer.innerHTML = '';
+    seriesRefresh();
+  });
+
   $('#entryForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var date = $('#entryDate').value;
@@ -254,9 +470,9 @@
     var shots = parseInt($('#entryShots').value, 10);
     var hits = parseInt($('#entryHits').value, 10);
     var score = Math.round(parseFloat($('#entryScore').value));
-    var avg = parseFloat($('#entryAvg').value);
     var errEl = app.querySelector('input[name="entryError"]:checked');
     if (!date || !isFinite(distance) || distance < 0 || !isFinite(score) || score < 0) return;
+    var avg = (isFinite(shots) && shots > 0) ? Math.round(score / shots * 100) / 100 : null;
     var arr = getEntries();
     var id = arr.reduce(function (m, x) { return Math.max(m, x.id); }, 0) + 1;
     arr.push({
@@ -266,13 +482,17 @@
       shots: isFinite(shots) ? shots : null,
       hits: isFinite(hits) ? hits : null,
       score: score,
-      avg: isFinite(avg) ? Math.round(avg * 100) / 100 : null,
+      avg: avg,
       error: errEl ? errEl.value : ''
     });
     setEntries(arr);
     ['entryShots', 'entryHits', 'entryScore', 'entryAvg'].forEach(function (f) { $('#' + f).value = ''; });
+    series = [];
+    arrowLayer.innerHTML = '';
+    seriesRefresh();
     var firstOpt = app.querySelector('input[name="entryError"]');
     if (firstOpt) firstOpt.checked = true;
+    refreshErrorHint();
     $('#entryOk').textContent = 'Сохранено ✓';
     setTimeout(function () { $('#entryOk').textContent = ''; }, 2200);
   });
@@ -298,16 +518,26 @@
       for (var k = 0; k < n; k++) pts += (k ? ' ' : '') + px(k) + ',' + py(data[k].score);
       s += '<polyline points="' + pts + '" fill="none" stroke="#1f6f50" stroke-width="2.5" stroke-linejoin="round"/>';
     }
+    var anyErr = false;
     for (var m = 0; m < n; m++) {
-      s += '<circle cx="' + px(m) + '" cy="' + py(data[m].score) + '" r="4.5" fill="#1f6f50">' +
-        '<title>' + fmtFull(data[m].date) + ' · ' + data[m].distance + ' м · ' + data[m].score + ' очк.</title></circle>';
+      var en = data[m];
+      var tip = fmtFull(en.date) + ' · ' + en.distance + ' м · ' + en.score + ' очк.';
+      if (en.error && en.error !== 'Ошибок нет') {
+        anyErr = true;
+        tip += ' · ' + en.error;
+        var cx = px(m), cy = py(en.score), rr = 6;
+        s += '<polygon points="' + cx + ',' + (cy - rr) + ' ' + (cx + rr) + ',' + cy + ' ' + cx + ',' + (cy + rr) + ' ' + (cx - rr) + ',' + cy + '" fill="#d98e32"><title>' + tip + '</title></polygon>';
+      } else {
+        s += '<circle cx="' + px(m) + '" cy="' + py(en.score) + '" r="4.5" fill="#1f6f50"><title>' + tip + '</title></circle>';
+      }
     }
     var labCount = Math.min(n, 6);
     for (var q = 0; q < labCount; q++) {
       var idx = labCount === 1 ? 0 : Math.round(q * (n - 1) / (labCount - 1));
       s += '<text x="' + px(idx) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="#6b7570">' + fmtShort(data[idx].date) + '</text>';
     }
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;display:block" role="img" aria-label="График очков по тренировкам">' + s + '</svg>';
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;display:block" role="img" aria-label="График очков по тренировкам">' + s + '</svg>' +
+      (anyErr ? '<p class="mini" style="margin-top:8px">● без ошибок · <span style="color:#d98e32">◆</span> систематическая ошибка (наведите на точку, чтобы увидеть какую)</p>' : '');
   }
 
   function renderChart() {
@@ -330,8 +560,18 @@
     if (data.length) {
       var sum = 0;
       data.forEach(function (e) { sum += e.score; });
-      $('#chartStat').textContent = 'Тренировок: ' + data.length + ' · Средний результат: ' + Math.round(sum / data.length) + ' очк.' +
+      var statText = 'Тренировок: ' + data.length + ' · Средний результат: ' + Math.round(sum / data.length) + ' очк.' +
         (cur === null ? '' : ' · дистанция ' + cur + ' м');
+      var errCount = {};
+      data.forEach(function (e) {
+        if (e.error && e.error !== 'Ошибок нет') errCount[e.error] = (errCount[e.error] || 0) + 1;
+      });
+      var errKeys = Object.keys(errCount);
+      if (errKeys.length) {
+        errKeys.sort(function (a, b) { return errCount[b] - errCount[a]; });
+        statText += ' · Частая ошибка: ' + errKeys[0] + ' (' + errCount[errKeys[0]] + ')';
+      }
+      $('#chartStat').textContent = statText;
     } else {
       $('#chartStat').textContent = '';
     }
@@ -380,6 +620,7 @@
     else { setAuthMode(t.getAttribute('data-auth')); go('auth'); }
   });
 
+  refreshErrorHint();
   var saved = localStorage.getItem(LS_SESSION);
   if (saved && getUsers()[saved]) {
     state.user = saved;
