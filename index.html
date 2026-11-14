@@ -9,10 +9,10 @@
 <body>
 <!-- ===== ДНЕВНИК ЛУЧНИКА · НАЧАЛО (для блока T123 на Тильде копируйте отсюда) ===== -->
 <style>
-#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#e5e3dd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#faf9f7;--bg-rgb:250,249,247;--red:#b3402f;
+#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#c9c6bd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#faf9f7;--bg-rgb:250,249,247;--red:#b3402f;
   /* фоновая подложка всех страниц (векторные мишени). Чтобы поставить фото — замените на url("https://…/fon.jpg") */
   --bgimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cg transform='translate(960,170)'%3E%3Ccircle r='250' fill='%23f2f0e9'/%3E%3Ccircle r='200' fill='%23ebe8dd'/%3E%3Ccircle r='150' fill='%23f5f3ec'/%3E%3Ccircle r='100' fill='%23e3e0d2'/%3E%3Ccircle r='52' fill='%23d8d2ba'/%3E%3C/g%3E%3Cg transform='translate(120,650)'%3E%3Ccircle r='130' fill='%23f1efe7'/%3E%3Ccircle r='104' fill='%23eae7db'/%3E%3Ccircle r='78' fill='%23f4f2ea'/%3E%3Ccircle r='52' fill='%23e4e1d3'/%3E%3Ccircle r='26' fill='%23dad4bd'/%3E%3C/g%3E%3C/svg%3E");
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-family:Tahoma,Verdana,'Segoe UI',sans-serif;
   color:var(--ink);
   background-color:var(--bg);
   background-image:linear-gradient(rgba(var(--bg-rgb),.93),rgba(var(--bg-rgb),.93)),var(--bgimg);
@@ -27,9 +27,9 @@
 #archer-app .swatch.cur{border-color:#fff;box-shadow:0 0 0 2px var(--ink)}
 #archer-app .brand{font-weight:700;font-size:16px;margin-right:auto}
 #archer-app .nav{display:flex;gap:4px}
-#archer-app .nav a{color:var(--mut);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px}
+#archer-app .nav a{color:#1a4f9c;text-decoration:none;font-size:14px;padding:5px 8px;border-radius:3px}
 #archer-app .nav a:hover{color:var(--ink)}
-#archer-app .nav a.cur{color:var(--acc);background:rgba(var(--acc-rgb),.1);font-weight:600}
+#archer-app .nav a.cur{color:#7c2d2d;background:#f4f2ec;font-weight:700;text-decoration:underline}
 #archer-app .userbox{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut)}
 #archer-app .linkbtn{border:0;background:none;color:var(--mut);cursor:pointer;font-size:14px;padding:6px 10px;border-radius:8px}
 #archer-app .linkbtn:hover{color:var(--red)}
@@ -42,24 +42,24 @@
   --heroimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='600' fill='%2315271d'/%3E%3Cg transform='translate(840,300)'%3E%3Ccircle r='245' fill='%2324382b'/%3E%3Ccircle r='196' fill='%232c4634'/%3E%3Ccircle r='147' fill='%2335523d'/%3E%3Ccircle r='98' fill='%234a6b50'/%3E%3Ccircle r='54' fill='%23d4b06a'/%3E%3Ccircle r='18' fill='%23efe0b2'/%3E%3C/g%3E%3Cg stroke='%23d8c69a' stroke-width='7' stroke-linecap='round'%3E%3Cline x1='140' y1='580' x2='800' y2='317'/%3E%3C/g%3E%3Cpath d='M841 300 L803 315 L810 332 Z' fill='%23e6d6a8'/%3E%3Cg stroke='%23cdbd92' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='152' y1='561' x2='190' y2='596'/%3E%3Cline x1='176' y1='550' x2='214' y2='585'/%3E%3C/g%3E%3C/svg%3E");
   text-align:center;padding:56px 26px 48px;
   background:linear-gradient(rgba(16,26,21,.55),rgba(16,26,21,.72)),var(--heroimg) center/cover no-repeat;
-  border-radius:18px;color:#fff}
+  border-radius:6px;color:#fff}
 #archer-app .hero .tag{color:rgba(255,255,255,.88)}
 #archer-app .hero .mini{color:rgba(255,255,255,.72)}
 #archer-app .hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.9)}
 #archer-app .heroMark{font-size:52px;margin-bottom:16px}
 #archer-app h1{font-size:34px;letter-spacing:-.5px;margin-bottom:12px}
-#archer-app h2{font-size:20px}
+#archer-app h2{font-size:19px;border-bottom:2px dashed var(--line);padding-bottom:6px}
 #archer-app .tag{font-size:17px;color:var(--mut);max-width:430px;margin:0 auto 8px}
 #archer-app .mini{font-size:13px;color:var(--mut)}
 #archer-app .row{display:flex;gap:10px;justify-content:center;margin-top:26px}
-#archer-app .btn{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer}
+#archer-app .btn{background:var(--acc);color:#fff;border:2px solid var(--acc);border-radius:4px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
 #archer-app .btn:hover{filter:brightness(1.07)}
-#archer-app .btn.ghost{background:none;color:var(--acc);border:1px solid var(--acc)}
-#archer-app .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+#archer-app .btn.ghost{background:#fff;color:var(--acc);border:1px solid var(--acc)}
+#archer-app .card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px;max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
 #archer-app .card.wide{max-width:none}
 #archer-app .cardhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 #archer-app label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mut)}
-#archer-app input,#archer-app select{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px;color:var(--ink);background:#fff;width:100%;font-family:inherit}
+#archer-app input,#archer-app select{border:1px solid #a9a69c;border-radius:3px;padding:8px 10px;font-size:15px;color:var(--ink);background:#fff;width:100%;font-family:inherit}
 #archer-app input:focus,#archer-app select:focus{outline:none;border-color:var(--acc)}
 #archer-app .err{color:var(--red);font-size:13px;min-height:16px}
 #archer-app .ok{color:var(--acc);font-size:14px;font-weight:600;min-height:16px;text-align:center}
@@ -67,8 +67,8 @@
 #archer-app a{color:var(--acc);text-decoration:none}
 #archer-app a:hover{text-decoration:underline}
 #archer-app table{width:100%;border-collapse:collapse;font-size:14px}
-#archer-app th{text-align:left;font-size:12px;color:var(--mut);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line)}
-#archer-app td{padding:10px;border-bottom:1px solid var(--line)}
+#archer-app th{text-align:left;font-size:12px;color:var(--mut);font-weight:700;padding:6px 8px;border:1px solid var(--line);background:#f4f2ec}
+#archer-app td{padding:8px;border:1px solid var(--line)}
 #archer-app .del{border:0;background:none;color:var(--mut);cursor:pointer;font-size:13px;padding:4px 8px;border-radius:8px}
 #archer-app .del:hover{color:var(--red)}
 #archer-app .del.armed{color:var(--red);font-weight:600}
