@@ -241,6 +241,7 @@
           <button type="button" class="sharebtn" data-net="max">⚡️ MAX</button>
           <button type="button" class="sharebtn" data-net="more">📱 Ещё…</button>
           <button type="button" class="sharebtn" data-net="copy">📋 Копировать текст</button>
+          <span class="mini" style="flex-basis:100%">Telegram, WhatsApp и MAX — выбираете чат и жмёте «Отправить». ВКонтакте по своим правилам публикует запись на стене; чтобы отправить в чат ВК — скопируйте текст и вставьте в чат.</span>
         </div>
         <div class="tablewrap">
           <table id="logTable">
@@ -818,7 +819,15 @@
     else if (net === 'whatsapp') openShare('https://api.whatsapp.com/send?text=' + enc(full));
     else if (net === 'vk') openShare('https://vk.com/share.php?url=' + enc(url) + '&title=' + enc(text));
     else if (net === 'ok') openShare('https://connect.ok.ru/offer?url=' + enc(url) + '&title=' + enc(text));
-    else if (net === 'max') openShare('https://max.ru/:share?text=' + enc(full));
+    else if (net === 'max') {
+      var isMobile = /Android|iPhone|iPad|Mobi/i.test(navigator.userAgent);
+      if (isMobile) {
+        openShare('https://max.ru/:share?text=' + enc(full));
+      } else {
+        openShare('https://web.max.ru/');
+        copyText(full).then(function () { feedback('✓ Текст скопирован — вставьте в чат MAX'); }, function () { feedback('Не удалось скопировать'); });
+      }
+    }
     else if (net === 'more') {
       if (navigator.share) {
         navigator.share({ text: full }).then(function () {}, function () {
