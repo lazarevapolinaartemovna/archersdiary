@@ -9,22 +9,27 @@
 <body>
 <!-- ===== ДНЕВНИК ЛУЧНИКА · НАЧАЛО (для блока T123 на Тильде копируйте отсюда) ===== -->
 <style>
-#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#e5e3dd;--acc:#1f6f50;--bg:#faf9f7;--red:#b3402f;
+#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#e5e3dd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#faf9f7;--bg-rgb:250,249,247;--red:#b3402f;
   /* фоновая подложка всех страниц (векторные мишени). Чтобы поставить фото — замените на url("https://…/fon.jpg") */
   --bgimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cg transform='translate(960,170)'%3E%3Ccircle r='250' fill='%23f2f0e9'/%3E%3Ccircle r='200' fill='%23ebe8dd'/%3E%3Ccircle r='150' fill='%23f5f3ec'/%3E%3Ccircle r='100' fill='%23e3e0d2'/%3E%3Ccircle r='52' fill='%23d8d2ba'/%3E%3C/g%3E%3Cg transform='translate(120,650)'%3E%3Ccircle r='130' fill='%23f1efe7'/%3E%3Ccircle r='104' fill='%23eae7db'/%3E%3Ccircle r='78' fill='%23f4f2ea'/%3E%3Ccircle r='52' fill='%23e4e1d3'/%3E%3Ccircle r='26' fill='%23dad4bd'/%3E%3C/g%3E%3C/svg%3E");
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   color:var(--ink);
   background-color:var(--bg);
-  background-image:linear-gradient(rgba(250,249,247,.93),rgba(250,249,247,.93)),var(--bgimg);
+  background-image:linear-gradient(rgba(var(--bg-rgb),.93),rgba(var(--bg-rgb),.93)),var(--bgimg);
   background-size:cover;background-position:center;background-repeat:no-repeat;
   min-height:100vh}
 #archer-app *{box-sizing:border-box;margin:0;padding:0}
-#archer-app .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
+#archer-app .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);position:relative}
+#archer-app .thememenu{position:absolute;top:calc(100% + 6px);right:14px;z-index:40;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 28px rgba(0,0,0,.14)}
+#archer-app .swatches{display:grid;grid-template-columns:repeat(5,30px);gap:8px}
+#archer-app .swatch{width:30px;height:30px;border-radius:50%;border:2px solid rgba(0,0,0,.08);cursor:pointer;padding:0}
+#archer-app .swatch:hover{transform:scale(1.12)}
+#archer-app .swatch.cur{border-color:#fff;box-shadow:0 0 0 2px var(--ink)}
 #archer-app .brand{font-weight:700;font-size:16px;margin-right:auto}
 #archer-app .nav{display:flex;gap:4px}
 #archer-app .nav a{color:var(--mut);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:8px}
 #archer-app .nav a:hover{color:var(--ink)}
-#archer-app .nav a.cur{color:var(--acc);background:rgba(31,111,80,.1);font-weight:600}
+#archer-app .nav a.cur{color:var(--acc);background:rgba(var(--acc-rgb),.1);font-weight:600}
 #archer-app .userbox{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut)}
 #archer-app .linkbtn{border:0;background:none;color:var(--mut);cursor:pointer;font-size:14px;padding:6px 10px;border-radius:8px}
 #archer-app .linkbtn:hover{color:var(--red)}
@@ -70,15 +75,20 @@
 #archer-app .radios{display:flex;flex-direction:column;gap:6px}
 #archer-app .radios .opt{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer}
 #archer-app .radios .opt input{width:auto}
-#archer-app .hint{font-size:13px;line-height:1.45;color:var(--mut);background:rgba(31,111,80,.07);border-left:3px solid var(--acc);padding:8px 10px;border-radius:0 8px 8px 0;margin-top:4px}
+#archer-app .hint{font-size:13px;line-height:1.45;color:var(--mut);background:rgba(var(--acc-rgb),.07);border-left:3px solid var(--acc);padding:8px 10px;border-radius:0 8px 8px 0;margin-top:4px}
 #archer-app .targetbox{display:flex;flex-direction:column;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px}
-#archer-app #targetSvg{width:210px;max-width:100%;height:auto;cursor:crosshair;touch-action:manipulation}
+#archer-app #targetSvg{width:270px;max-width:100%;height:auto;cursor:crosshair;touch-action:manipulation}
 #archer-app .targetctl{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
+#archer-app .endsize{display:flex;align-items:center;gap:6px}
+#archer-app .endsize select{width:auto;padding:4px 8px;font-size:13px}
+#archer-app .sharemenu{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+#archer-app .sharebtn{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff;cursor:pointer;font-size:13px;color:var(--ink);font-family:inherit}
+#archer-app .sharebtn:hover{border-color:var(--acc);color:var(--acc)}
 #archer-app .radioshead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 #archer-app .autobox{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;margin-top:6px}
 #archer-app .btnrow{display:flex;gap:6px;flex-wrap:wrap}
 #archer-app .chip{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--ink);font-family:inherit}
-#archer-app .chip.on{border-color:var(--acc);background:rgba(31,111,80,.1);color:var(--acc);font-weight:600}
+#archer-app .chip.on{border-color:var(--acc);background:rgba(var(--acc-rgb),.1);color:var(--acc);font-weight:600}
 #archer-app .tablewrap{overflow-x:auto}
 #archer-app svg text{font-family:inherit}
 @media (max-width:520px){#archer-app h1{font-size:26px}#archer-app .main{padding-top:20px}}
@@ -92,6 +102,11 @@
       <a href="#" data-go="chart">График</a>
       <a href="#" data-go="log">Журнал</a>
     </nav>
+    <button id="themeBtn" class="linkbtn" type="button" title="Цвет оформления">🎨</button>
+    <div id="themeMenu" class="thememenu" style="display:none">
+      <span class="mini">Цвет оформления</span>
+      <div id="swatches" class="swatches"></div>
+    </div>
     <span class="userbox"><span id="userName"></span><button id="logoutBtn" class="linkbtn" type="button">Выйти</button></span>
   </header>
 
@@ -144,6 +159,14 @@
           </svg>
           <div class="targetctl">
             <span id="seriesInfo" class="mini">Стрел: 0 · Сумма: 0</span>
+            <label class="endsize"><span class="mini">стрел в серии:</span>
+              <select id="endSize">
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </label>
             <button type="button" id="undoArrow" class="linkbtn">Отменить стрелу</button>
             <button type="button" id="resetSeries" class="linkbtn">Сбросить серию</button>
           </div>
@@ -206,7 +229,19 @@
 
     <section id="view-log" class="view">
       <div class="card wide">
-        <h2>Журнал тренировок</h2>
+        <div class="cardhead">
+          <h2>Журнал тренировок</h2>
+          <button id="shareBtn" class="btn ghost" type="button" style="padding:8px 14px;font-size:13px">📤 Поделиться результатом</button>
+        </div>
+        <div id="shareMenu" class="sharemenu" style="display:none">
+          <button type="button" class="sharebtn" data-net="telegram">✈️ Telegram</button>
+          <button type="button" class="sharebtn" data-net="whatsapp">💬 WhatsApp</button>
+          <button type="button" class="sharebtn" data-net="vk">🅥 ВКонтакте</button>
+          <button type="button" class="sharebtn" data-net="ok">🟠 Одноклассники</button>
+          <button type="button" class="sharebtn" data-net="max">⚡️ MAX</button>
+          <button type="button" class="sharebtn" data-net="more">📱 Ещё…</button>
+          <button type="button" class="sharebtn" data-net="copy">📋 Копировать текст</button>
+        </div>
         <div class="tablewrap">
           <table id="logTable">
             <thead><tr><th>Дата</th><th>Дист.</th><th>Выстр.</th><th>Попад.</th><th>Очки</th><th>Ср. балл</th><th>Ошибка</th><th></th></tr></thead>
@@ -424,14 +459,29 @@
   function seriesRefresh() {
     var sum = 0, miss = 0;
     series.forEach(function (v) { sum += v; if (!v) miss++; });
-    $('#seriesInfo').textContent = 'Стрел: ' + series.length + ' · Сумма: ' + sum + (miss ? ' · Промахи: ' + miss : '');
+    var endSize = parseInt($('#endSize').value, 10) || 3;
+    var ends = [], cur = 0;
+    series.forEach(function (v, i) {
+      cur += v;
+      if ((i + 1) % endSize === 0) { ends.push(cur); cur = 0; }
+    });
+    var inEnd = series.length ? ((series.length - 1) % endSize) + 1 : 0;
+    $('#seriesInfo').innerHTML = 'Стрел: ' + series.length + ' · Сумма: ' + sum +
+      (miss ? ' · Промахи: ' + miss : '') +
+      (ends.length ? '<br>Серии: ' + ends.join(' · ') : '') +
+      (series.length ? '<br>Текущая серия: ' + inEnd + '/' + endSize : '');
     $('#entryShots').value = series.length || '';
     $('#entryScore').value = series.length ? sum : '';
     $('#entryHits').value = series.length ? (series.length - miss) : '';
     ['entryShots', 'entryScore'].forEach(function (id) {
       document.getElementById(id).dispatchEvent(new Event('input', { bubbles: true }));
     });
+    var fills = ['rgba(20,25,22,.85)', '#5a6b9e'];
+    app.querySelectorAll('#targetSvg g circle').forEach(function (c, i) {
+      c.setAttribute('fill', series[i] === 0 ? '#a8b0a9' : fills[Math.floor(i / endSize) % 2]);
+    });
   }
+  $('#endSize').addEventListener('change', seriesRefresh);
 
   targetSvg.addEventListener('click', function (e) {
     var rect = targetSvg.getBoundingClientRect();
@@ -504,6 +554,7 @@
     var maxScore = 0;
     for (var i = 0; i < data.length; i++) maxScore = Math.max(maxScore, data[i].score);
     var yMax = Math.max(50, Math.ceil(maxScore / 50) * 50);
+    var accColor = getComputedStyle(app).getPropertyValue('--acc').trim() || '#1f6f50';
     var n = data.length;
     function px(i) { return n === 1 ? L + iw / 2 : L + i * iw / (n - 1); }
     function py(v) { return T + ih - v / yMax * ih; }
@@ -516,7 +567,7 @@
     if (n > 1) {
       var pts = '';
       for (var k = 0; k < n; k++) pts += (k ? ' ' : '') + px(k) + ',' + py(data[k].score);
-      s += '<polyline points="' + pts + '" fill="none" stroke="#1f6f50" stroke-width="2.5" stroke-linejoin="round"/>';
+      s += '<polyline points="' + pts + '" fill="none" stroke="' + accColor + '" stroke-width="2.5" stroke-linejoin="round"/>';
     }
     var anyErr = false;
     for (var m = 0; m < n; m++) {
@@ -528,7 +579,7 @@
         var cx = px(m), cy = py(en.score), rr = 6;
         s += '<polygon points="' + cx + ',' + (cy - rr) + ' ' + (cx + rr) + ',' + cy + ' ' + cx + ',' + (cy + rr) + ' ' + (cx - rr) + ',' + cy + '" fill="#d98e32"><title>' + tip + '</title></polygon>';
       } else {
-        s += '<circle cx="' + px(m) + '" cy="' + py(en.score) + '" r="4.5" fill="#1f6f50"><title>' + tip + '</title></circle>';
+        s += '<circle cx="' + px(m) + '" cy="' + py(en.score) + '" r="4.5" fill="' + accColor + '"><title>' + tip + '</title></circle>';
       }
     }
     var labCount = Math.min(n, 6);
@@ -621,6 +672,165 @@
   });
 
   refreshErrorHint();
+
+  var PALETTE = ['#1f6f50', '#23857a', '#2f5d8e', '#52489c', '#7a45a0', '#8f3a4d', '#c0392b', '#c25e3f', '#b0741f', '#5d8a2a', '#c94f7c', '#3787c2', '#7c5a3a', '#3f4a54', '#a88a2e', '#9c8a63'];
+
+  function hexToRgb(h) {
+    return { r: parseInt(h.slice(1, 3), 16), g: parseInt(h.slice(3, 5), 16), b: parseInt(h.slice(5, 7), 16) };
+  }
+  function mixToHex(hex, t) {
+    var c = hexToRgb(hex);
+    var ch = function (v) {
+      var m = Math.round(v + (255 - v) * t);
+      var s = m.toString(16);
+      return s.length < 2 ? '0' + s : s;
+    };
+    return '#' + ch(c.r) + ch(c.g) + ch(c.b);
+  }
+
+  var SPECIAL_THEMES = {
+    white: { acc: '#1f6f50', bg: '#faf9f7', line: '#e5e3dd', swatch: '#ffffff', title: 'Белый — как в начале' },
+    lemon: { acc: '#8a6d1f', bg: '#fdf6d5', line: '#eadfa4', swatch: '#fdf3b3', title: 'Светло-жёлтый (лимонный)' }
+  };
+
+  function applyTheme(theme) {
+    var sp = SPECIAL_THEMES[theme];
+    var accHex = sp ? sp.acc : theme;
+    var rgb = hexToRgb(accHex);
+    var bg = sp ? sp.bg : mixToHex(accHex, 0.82);
+    var bgc = hexToRgb(bg);
+    app.style.setProperty('--acc', accHex);
+    app.style.setProperty('--acc-rgb', rgb.r + ',' + rgb.g + ',' + rgb.b);
+    app.style.setProperty('--bg', bg);
+    app.style.setProperty('--bg-rgb', bgc.r + ',' + bgc.g + ',' + bgc.b);
+    app.style.setProperty('--line', sp ? sp.line : mixToHex(accHex, 0.68));
+    localStorage.setItem('archerTheme', theme);
+    app.querySelectorAll('.swatch').forEach(function (s) {
+      s.classList.toggle('cur', s.getAttribute('data-c') === theme);
+    });
+  }
+
+  (function initTheme() {
+    var wrap = $('#swatches');
+    var mkSwatch = function (val, bg, title) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'swatch';
+      b.setAttribute('data-c', val);
+      b.setAttribute('title', title);
+      b.style.background = bg;
+      if (val === 'white') b.style.borderColor = '#c9c6c0';
+      b.addEventListener('click', function () {
+        applyTheme(val);
+        $('#themeMenu').style.display = 'none';
+        if (document.querySelector('#view-chart.active')) renderChart();
+      });
+      wrap.appendChild(b);
+    };
+    Object.keys(SPECIAL_THEMES).forEach(function (key) {
+      var t = SPECIAL_THEMES[key];
+      mkSwatch(key, t.swatch, t.title);
+      var el = wrap.lastChild;
+      if (key !== 'white') el.style.borderColor = '#d8cf8e';
+    });
+    PALETTE.forEach(function (hex) { mkSwatch(hex, hex, hex); });
+    var saved = localStorage.getItem('archerTheme');
+    var valid = !!SPECIAL_THEMES[saved] || PALETTE.indexOf(saved) >= 0;
+    applyTheme(valid ? saved : 'white');
+  })();
+
+  $('#themeBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    var m = $('#themeMenu');
+    m.style.display = m.style.display === 'none' ? 'flex' : 'none';
+  });
+  document.addEventListener('click', function (e) {
+    var m = $('#themeMenu');
+    if (m.style.display !== 'none' && !e.target.closest('#themeMenu')) m.style.display = 'none';
+  });
+
+  function copyText(t) {
+    var legacy = function () {
+      var ta = document.createElement('textarea');
+      ta.value = t;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) {}
+      ta.remove();
+      return ok ? Promise.resolve() : Promise.reject(new Error('copy failed'));
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(t).catch(legacy);
+    }
+    return legacy();
+  }
+
+  var SITE_URL = 'https://lazarevapolinaartemovna.github.io/archersdiary/';
+
+  function buildShareText() {
+    var arr = getEntries().slice().sort(function (a, b) { return a.date === b.date ? a.id - b.id : (a.date < b.date ? -1 : 1); });
+    if (!arr.length) return null;
+    var last = arr[arr.length - 1];
+    var sum = 0;
+    arr.forEach(function (e) { sum += e.score; });
+    return '🏹 Мой дневник лучника\n' +
+      'Последняя тренировка: ' + fmtFull(last.date) + ', ' + last.distance + ' м — ' + last.score + ' очк.' +
+      (last.avg != null ? ' (средний балл ' + last.avg + ')' : '') + (last.error && last.error !== 'Ошибок нет' ? ', ошибка: ' + last.error : '') + '\n' +
+      'Всего тренировок: ' + arr.length + ' · средний результат: ' + Math.round(sum / arr.length) + ' очк.';
+  }
+
+  $('#shareBtn').addEventListener('click', function () {
+    var btn = $('#shareBtn');
+    if (!buildShareText()) {
+      btn.textContent = 'Пока нечего делиться';
+      setTimeout(function () { btn.textContent = '📤 Поделиться результатом'; }, 2000);
+      return;
+    }
+    var m = $('#shareMenu');
+    m.style.display = m.style.display === 'none' ? 'flex' : 'none';
+  });
+
+  function openShare(url) {
+    var w = null;
+    try { w = window.open(url, '_blank'); } catch (err) {}
+    if (!w) location.href = url;
+  }
+
+  $('#shareMenu').addEventListener('click', function (e) {
+    var b = e.target.closest('.sharebtn');
+    if (!b) return;
+    var text = buildShareText();
+    if (!text) return;
+    var url = SITE_URL;
+    var enc = encodeURIComponent;
+    var net = b.getAttribute('data-net');
+    var full = text + '\n' + url;
+    var feedback = function (msg) {
+      var old = b.textContent;
+      b.textContent = msg;
+      setTimeout(function () { b.textContent = old; }, 2200);
+    };
+    $('#shareMenu').style.display = 'none';
+    if (net === 'telegram') openShare('https://t.me/share/url?url=' + enc(url) + '&text=' + enc(text));
+    else if (net === 'whatsapp') openShare('https://api.whatsapp.com/send?text=' + enc(full));
+    else if (net === 'vk') openShare('https://vk.com/share.php?url=' + enc(url) + '&title=' + enc(text));
+    else if (net === 'ok') openShare('https://connect.ok.ru/offer?url=' + enc(url) + '&title=' + enc(text));
+    else if (net === 'max') openShare('https://max.ru/:share?text=' + enc(full));
+    else if (net === 'more') {
+      if (navigator.share) {
+        navigator.share({ text: full }).then(function () {}, function () {
+          copyText(full).then(function () { feedback('✓ Скопировано'); }, function () { feedback('Не удалось скопировать'); });
+        });
+      } else {
+        copyText(full).then(function () { feedback('✓ Скопировано'); }, function () { feedback('Не удалось скопировать'); });
+      }
+    }
+    else if (net === 'copy') copyText(full).then(function () { feedback('✓ Скопировано'); }, function () { feedback('Не удалось'); });
+  });
+
   var saved = localStorage.getItem(LS_SESSION);
   if (saved && getUsers()[saved]) {
     state.user = saved;
