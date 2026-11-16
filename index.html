@@ -9,17 +9,14 @@
 <body>
 <!-- ===== ДНЕВНИК ЛУЧНИКА · НАЧАЛО (для блока T123 на Тильде копируйте отсюда) ===== -->
 <style>
-#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#c9c6bd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#faf9f7;--bg-rgb:250,249,247;--red:#b3402f;
-  /* фоновая подложка всех страниц (векторные мишени). Чтобы поставить фото — замените на url("https://…/fon.jpg") */
-  --bgimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cg transform='translate(960,170)'%3E%3Ccircle r='250' fill='%23f2f0e9'/%3E%3Ccircle r='200' fill='%23ebe8dd'/%3E%3Ccircle r='150' fill='%23f5f3ec'/%3E%3Ccircle r='100' fill='%23e3e0d2'/%3E%3Ccircle r='52' fill='%23d8d2ba'/%3E%3C/g%3E%3Cg transform='translate(120,650)'%3E%3Ccircle r='130' fill='%23f1efe7'/%3E%3Ccircle r='104' fill='%23eae7db'/%3E%3Ccircle r='78' fill='%23f4f2ea'/%3E%3Ccircle r='52' fill='%23e4e1d3'/%3E%3Ccircle r='26' fill='%23dad4bd'/%3E%3C/g%3E%3C/svg%3E");
-  font-family:Tahoma,Verdana,'Segoe UI',sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#d9d6cd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#f2f1ee;--bg-rgb:242,241,238;--red:#b3402f;
+  font-family:'Montserrat',Tahoma,Verdana,sans-serif;
   color:var(--ink);
   background-color:var(--bg);
-  background-image:linear-gradient(rgba(var(--bg-rgb),.93),rgba(var(--bg-rgb),.93)),var(--bgimg);
-  background-size:cover;background-position:center;background-repeat:no-repeat;
   min-height:100vh}
 #archer-app *{box-sizing:border-box;margin:0;padding:0}
-#archer-app .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);position:relative}
+#archer-app .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 24px;border-bottom:1px solid var(--line);position:relative;background:#fff}
 #archer-app .thememenu{position:absolute;top:calc(100% + 6px);right:14px;z-index:40;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 28px rgba(0,0,0,.14)}
 #archer-app .swatches{display:grid;grid-template-columns:repeat(5,30px);gap:8px}
 #archer-app .swatch{width:30px;height:30px;border-radius:50%;border:2px solid rgba(0,0,0,.08);cursor:pointer;padding:0}
@@ -55,7 +52,7 @@
 #archer-app .btn{background:var(--acc);color:#fff;border:2px solid var(--acc);border-radius:4px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
 #archer-app .btn:hover{filter:brightness(1.07)}
 #archer-app .btn.ghost{background:#fff;color:var(--acc);border:1px solid var(--acc)}
-#archer-app .card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px;max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+#archer-app .card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px;max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
 #archer-app .card.wide{max-width:none}
 #archer-app .cardhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 #archer-app label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mut)}
@@ -102,7 +99,7 @@
       <a href="#" data-go="chart">График</a>
       <a href="#" data-go="log">Журнал</a>
     </nav>
-    <button id="themeBtn" class="linkbtn" type="button" title="Цвет оформления">🎨</button>
+    <button id="themeBtn" class="linkbtn" type="button" title="Цвет оформления">Тема</button>
     <div id="themeMenu" class="thememenu" style="display:none">
       <span class="mini">Цвет оформления</span>
       <div id="swatches" class="swatches"></div>
@@ -128,7 +125,7 @@
     <section id="view-auth" class="view">
       <form id="authForm" class="card">
         <h2 id="authTitle">Регистрация</h2>
-        <label>Имя<input id="authName" required minlength="2" maxlength="24" autocomplete="off"></label>
+        <label>Электронная почта<input id="authName" type="email" required placeholder="example@mail.ru" autocomplete="off"></label>
         <label>Пароль<input id="authPass" type="password" required minlength="3"></label>
         <label id="pass2Wrap">Повторите пароль<input id="authPass2" type="password"></label>
         <div id="authErr" class="err"></div>
@@ -178,7 +175,7 @@
         <div class="radios">
           <div class="radioshead">
             <span class="mini">Систематическая ошибка</span>
-            <button type="button" id="autoErrorBtn" class="linkbtn">🤖 Определить автоматически</button>
+            <button type="button" id="autoErrorBtn" class="linkbtn">Определить автоматически</button>
           </div>
           <label class="opt"><input type="radio" name="entryError" value="Ошибок нет" checked>Ошибок нет</label>
           <label class="opt"><input type="radio" name="entryError" value="Сдёргивание на выпуске">Сдёргивание на выпуске</label>
@@ -231,16 +228,15 @@
       <div class="card wide">
         <div class="cardhead">
           <h2>Журнал тренировок</h2>
-          <button id="shareBtn" class="btn ghost" type="button" style="padding:8px 14px;font-size:13px">📤 Поделиться результатом</button>
+          <button id="shareBtn" class="btn ghost" type="button" style="padding:8px 14px;font-size:13px">Поделиться результатом</button>
         </div>
         <div id="shareMenu" class="sharemenu" style="display:none">
-          <button type="button" class="sharebtn" data-net="telegram">✈️ Telegram</button>
-          <button type="button" class="sharebtn" data-net="whatsapp">💬 WhatsApp</button>
-          <button type="button" class="sharebtn" data-net="vk">🅥 ВКонтакте</button>
-          <button type="button" class="sharebtn" data-net="ok">🟠 Одноклассники</button>
-          <button type="button" class="sharebtn" data-net="max">⚡️ MAX</button>
-          <button type="button" class="sharebtn" data-net="more">📱 Ещё…</button>
-          <button type="button" class="sharebtn" data-net="copy">📋 Копировать текст</button>
+          <button type="button" class="sharebtn" data-net="telegram">Telegram</button>
+          <button type="button" class="sharebtn" data-net="whatsapp">WhatsApp</button>
+          <button type="button" class="sharebtn" data-net="vk">ВКонтакте</button>
+          <button type="button" class="sharebtn" data-net="ok">Одноклассники</button>
+          <button type="button" class="sharebtn" data-net="max">MAX</button>
+          <button type="button" class="sharebtn" data-net="copy">Скопировать текст</button>
           <span class="mini" style="flex-basis:100%">Telegram, WhatsApp и MAX — выбираете чат и жмёте «Отправить». ВКонтакте по своим правилам публикует запись на стене; чтобы отправить в чат ВК — скопируйте текст и вставьте в чат.</span>
         </div>
         <div class="tablewrap">
@@ -386,12 +382,12 @@
     if (authMode === 'register') {
       if (pass !== $('#authPass2').value) { err.textContent = 'Пароли не совпадают.'; return; }
       var users = getUsers();
-      if (users[name]) { err.textContent = 'Это имя уже занято — войдите.'; return; }
+      if (users[name]) { err.textContent = 'Эта почта уже зарегистрирована — войдите.'; return; }
       users[name] = { p: hash(pass) };
       localStorage.setItem(LS_USERS, JSON.stringify(users));
     } else {
       var u = getUsers()[name];
-      if (!u || u.p !== hash(pass)) { err.textContent = 'Неверное имя или пароль.'; return; }
+      if (!u || u.p !== hash(pass)) { err.textContent = 'Неверная почта или пароль.'; return; }
     }
     localStorage.setItem(LS_SESSION, name);
     state.user = name;
@@ -477,10 +473,6 @@
     ['entryShots', 'entryScore'].forEach(function (id) {
       document.getElementById(id).dispatchEvent(new Event('input', { bubbles: true }));
     });
-    var fills = ['rgba(20,25,22,.85)', '#5a6b9e'];
-    app.querySelectorAll('#targetSvg g circle').forEach(function (c, i) {
-      c.setAttribute('fill', series[i] === 0 ? '#a8b0a9' : fills[Math.floor(i / endSize) % 2]);
-    });
   }
   $('#endSize').addEventListener('change', seriesRefresh);
 
@@ -491,14 +483,6 @@
     var d = Math.sqrt((x - 120) * (x - 120) + (y - 120) * (y - 120));
     var val = d > 100 ? 0 : Math.max(1, 10 - Math.floor(d / 10));
     series.push(val);
-    var dot = document.createElementNS(SVGNS, 'circle');
-    dot.setAttribute('cx', x.toFixed(1));
-    dot.setAttribute('cy', y.toFixed(1));
-    dot.setAttribute('r', '2.4');
-    dot.setAttribute('fill', val === 0 ? '#a8b0a9' : 'rgba(20,25,22,.85)');
-    dot.setAttribute('stroke', '#fff');
-    dot.setAttribute('stroke-width', '.6');
-    arrowLayer.appendChild(dot);
     seriesRefresh();
   });
 
@@ -787,7 +771,7 @@
     var btn = $('#shareBtn');
     if (!buildShareText()) {
       btn.textContent = 'Пока нечего делиться';
-      setTimeout(function () { btn.textContent = '📤 Поделиться результатом'; }, 2000);
+      setTimeout(function () { btn.textContent = 'Поделиться результатом'; }, 2000);
       return;
     }
     var m = $('#shareMenu');
