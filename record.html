@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дневник лучника — записать тренировку</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%B9%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; } body {margin: 0;}#izyxi{flex:1;min-width:200px;}#ip1hk{flex:1;min-width:200px;}#autoBox{display:none;margin-top:14px;}.ad-app{--ink:#1d2420;--mut:#6b7570;--line:#d9d6cd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#f2f1ee;--card:#fff;--red:#b3402f;font-family:Montserrat, Tahoma, Verdana, sans-serif;color:var(--ink);background-color:var(--bg);min-height:100vh;}.ad-app *{box-sizing:border-box;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;}.ad-app.acc-blue{--acc:#1a5fb4;--acc-rgb:26,95,180;}.ad-app.acc-wine{--acc:#8a3342;--acc-rgb:138,51,66;}.ad-app.acc-amber{--acc:#a2651c;--acc-rgb:162,101,28;}.ad-app.acc-plum{--acc:#6b2f8f;--acc-rgb:107,47,143;}.ad-app.dark{--ink:#eae8e0;--mut:#96a096;--line:#39413a;--bg:#141814;--card:#1e241e;}.ad-top{display:flex;align-items:center;row-gap:14px;column-gap:14px;flex-wrap:wrap;padding-top:14px;padding-right:24px;padding-bottom:14px;padding-left:24px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);background-color:var(--card);}.ad-brand{font-weight:700;font-size:16px;margin-right:auto;}.ad-nav{display:flex;row-gap:4px;column-gap:4px;flex-wrap:wrap;}.ad-nav a{color:rgb(26, 79, 156);text-decoration-line:none;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;font-size:14px;padding-top:5px;padding-right:8px;padding-bottom:5px;padding-left:8px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;}.ad-nav a:hover{color:var(--ink);}.ad-app.dark .ad-nav a{color:rgb(127, 178, 224);}.ad-nav a.cur{color:rgb(124, 45, 45);background-color:rgb(244, 242, 236);font-weight:700;text-decoration-line:underline;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;}.ad-app.dark .ad-nav a.cur{color:rgb(230, 176, 164);background-color:rgb(38, 48, 42);}.ad-userbox{display:flex;align-items:center;row-gap:8px;column-gap:8px;font-size:14px;color:var(--mut);}.ad-linkbtn{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--mut);cursor:pointer;font-size:14px;padding-top:6px;padding-right:10px;padding-bottom:6px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;font-family:inherit;}.ad-linkbtn:hover{color:var(--red);}.ad-main{max-width:680px;margin-top:0px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:34px;padding-right:20px;padding-bottom:64px;padding-left:20px;}.ad-card{background-color:var(--card);border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:14px;border-top-right-radius:14px;border-bottom-right-radius:14px;border-bottom-left-radius:14px;padding-top:18px;padding-right:18px;padding-bottom:18px;padding-left:18px;margin-bottom:16px;}.ad-cardhead{display:flex;align-items:center;justify-content:space-between;row-gap:10px;column-gap:10px;font-weight:700;margin-bottom:12px;}.ad-row{display:flex;row-gap:10px;column-gap:10px;flex-wrap:wrap;align-items:center;}.ad-hint{font-size:13px;color:var(--mut);margin-top:10px;}.ad-mini{font-size:13px;color:var(--mut);}.ad-btn{display:inline-block;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;padding-top:12px;padding-right:22px;padding-bottom:12px;padding-left:22px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;background-color:var(--acc);color:rgb(255, 255, 255);}.ad-btn:hover{filter:brightness(1.08);}.ad-btn.ghost{background-color:transparent;color:var(--acc);border-top-width:1px;border-top-style:solid;border-top-color:rgba(var(--acc-rgb),.45);}.ad-btn.small{padding-top:8px;padding-right:14px;padding-bottom:8px;padding-left:14px;font-size:13px;}.ad-btnrow{display:flex;row-gap:10px;column-gap:10px;flex-wrap:wrap;margin-top:14px;}.ad-field{margin-bottom:12px;}.ad-field label{display:block;font-size:13px;color:var(--mut);margin-bottom:6px;font-weight:600;}.ad-field input, .ad-field select, .ad-field textarea{width:100%;padding-top:11px;padding-right:12px;padding-bottom:11px;padding-left:12px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-family:inherit;font-size:inherit;background-color:var(--bg);color:var(--ink);}.ad-field input:focus, .ad-field select:focus{outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.4);border-top-color:var(--acc);}.ad-seg button{flex-grow:1;flex-shrink:1;flex-basis:0%;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;font-family:inherit;font-weight:600;font-size:14px;padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;color:var(--mut);cursor:pointer;}.ad-seg button.cur{background-color:var(--acc);color:rgb(255, 255, 255);}.ad-err{display:none;background-color:rgba(179, 64, 47, 0.12);border-top-width:1px;border-top-style:solid;border-top-color:rgba(179, 64, 47, 0.45);border-right-width:1px;border-right-style:solid;border-right-color:rgba(179, 64, 47, 0.45);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(179, 64, 47, 0.45);border-left-width:1px;border-left-style:solid;border-left-color:rgba(179, 64, 47, 0.45);color:rgb(160, 60, 46);padding-top:10px;padding-right:12px;padding-bottom:10px;padding-left:12px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-size:14px;margin-bottom:12px;}.ad-app.dark .ad-err{color:rgb(232, 167, 155);}.ad-err.show{display:block;}.ad-ok{display:none;background-color:rgba(31, 111, 80, 0.12);border-top-width:1px;border-top-style:solid;border-top-color:rgba(31, 111, 80, 0.45);border-right-width:1px;border-right-style:solid;border-right-color:rgba(31, 111, 80, 0.45);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(31, 111, 80, 0.45);border-left-width:1px;border-left-style:solid;border-left-color:rgba(31, 111, 80, 0.45);color:rgb(31, 111, 80);padding-top:10px;padding-right:12px;padding-bottom:10px;padding-left:12px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-size:14px;margin-bottom:12px;}.ad-app.dark .ad-ok{color:rgb(143, 211, 180);}.ad-ok.show{display:block;}.ad-hero h1{font-size:34px;font-weight:800;margin-bottom:12px;max-width:72%;}.ad-hero .ad-lead{font-size:16px;line-height:1.5;max-width:56%;opacity:0.94;}.ad-hero .ad-lead2{font-size:13px;margin-top:8px;max-width:56%;opacity:0.75;}.ad-tablewrap{overflow-x:auto;}.ad-table{width:100%;border-collapse:collapse;font-size:14px;}.ad-table th, .ad-table td{border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;text-align:left;white-space-collapse:collapse;text-wrap-mode:nowrap;}.ad-table th{font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--mut);}.ad-table td.num, .ad-table th.num{text-align:right;}.ad-table tr.total td{font-weight:700;border-top-width:2px;border-top-style:solid;border-top-color:var(--line);}.ad-table .del{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--red);cursor:pointer;font-weight:700;padding-top:4px;padding-right:8px;padding-bottom:4px;padding-left:8px;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;font-size:14px;font-family:inherit;}.ad-empty{text-align:center;color:var(--mut);padding-top:26px;padding-right:10px;padding-bottom:26px;padding-left:10px;font-size:14px;}.ad-radios{display:flex;row-gap:8px;column-gap:8px;flex-wrap:wrap;}.ad-radioshead{font-size:13px;color:var(--mut);font-weight:600;margin-top:12px;margin-right:0px;margin-bottom:8px;margin-left:0px;}.ad-radios label{display:inline-flex;align-items:center;row-gap:6px;column-gap:6px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);background-color:var(--bg);border-top-left-radius:999px;border-top-right-radius:999px;border-bottom-right-radius:999px;border-bottom-left-radius:999px;padding-top:7px;padding-right:14px;padding-bottom:7px;padding-left:14px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);}.ad-radios input{accent-color:var(--acc);}.ad-targetbox{margin-top:12px;margin-right:auto;margin-bottom:12px;margin-left:auto;max-width:340px;width:100%;aspect-ratio:1 / 1;position:relative;cursor:crosshair;box-shadow:rgba(0, 0, 0, 0.28) 0px 10px 30px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;overflow-x:hidden;overflow-y:hidden;background-color:rgb(22, 36, 26);}.ad-targetbox svg{display:block;width:100%;height:100%;}.ad-stats{display:flex;row-gap:16px;column-gap:16px;flex-wrap:wrap;font-size:14px;color:var(--mut);align-items:baseline;}.ad-stats b{color:var(--ink);font-size:20px;font-weight:800;}.ad-statline b{color:var(--ink);font-size:17px;font-weight:800;}.ad-legend i{display:inline-block;width:10px;height:10px;border-top-left-radius:50%;border-top-right-radius:50%;border-bottom-right-radius:50%;border-bottom-left-radius:50%;background-color:var(--acc);margin-right:6px;}.ad-themeopt.cur{border-top-color:var(--acc);border-right-color:var(--acc);border-bottom-color:var(--acc);border-left-color:var(--acc);outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.35);}.ad-swatch.cur{border-top-color:var(--ink);border-right-color:var(--ink);border-bottom-color:var(--ink);border-left-color:var(--ink);outline-width:2px;outline-style:solid;outline-color:var(--acc);outline-offset:1px;}.ad-blanknote{font-size:13px;color:var(--mut);margin-top:8px;}@media (max-width: 640px){.ad-hero h1{font-size:26px;max-width:100%;}.ad-hero .ad-lead, .ad-hero .ad-lead2{max-width:100%;}}
+</style>
+</head>
+<body>
+<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html" class="cur">Записать</a><a href="chart.html">График</a><a href="journal.html">Журнал</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main"><div id="recErr" class="ad-err"></div><div id="saveOk" class="ad-ok"></div><section class="ad-card"><div class="ad-cardhead"><h2>📅 Новая тренировка</h2></div><div class="ad-row"><div class="ad-field" id="izyxi"><label for="recDate">Дата тренировки</label><input id="recDate" type="date"/></div><div class="ad-field" id="ip1hk"><label for="recDist">Дистанция, м</label><select id="recDist"><option value="18">18 м</option><option value="25">25 м</option><option value="30" selected="selected">30 м</option><option value="50">50 м</option><option value="70">70 м</option></select></div></div></section><section class="ad-card"><div class="ad-cardhead"><h2>🎯 Мишень</h2><span id="endProgress" class="ad-mini">Серия: 0 из 3</span></div><p class="ad-mini">Клик по мишени — попадание стрелы. Клик вне колец — промах (0 очков).</p><div id="targetBox" class="ad-targetbox"></div><div class="ad-stats"><span>Стрел: <b id="arrowCount">0</b></span><span>Сумма: <b id="sumCount">0</b></span></div><p class="ad-radioshead">Стрел в серии</p><div class="ad-radios"><label><input type="radio" name="endSize" value="3" checked="checked"/>3</label><label><input type="radio" name="endSize" value="4"/>4</label><label><input type="radio" name="endSize" value="5"/>5</label><label><input type="radio" name="endSize" value="6"/>6</label></div><div class="ad-btnrow"><button id="undoBtn" type="button" class="ad-btn ghost small">↩ Отменить стрелу</button><button id="resetBtn" type="button" class="ad-btn ghost small">✕ Сбросить серию</button></div></section><section class="ad-card"><div class="ad-cardhead"><h2>📋 Бланк серии</h2></div><div class="ad-tablewrap"><table id="blankTable" class="ad-table"><thead><tr><th>Серия</th><th>Выстрелы</th><th class="num">Попаданий</th><th class="num">Очки</th><th class="num">Ср. балл</th></tr></thead><tbody id="blankBody"></tbody></table></div><div id="blankEmpty" class="ad-empty">Серия ещё не завершена — сделайте выстрелы по мишени, и она появится в бланке.</div><p class="ad-blanknote">Попаданий считаются стрелы с очками больше нуля. Ср. балл = очки / выстрелы.</p></section><section class="ad-card"><div class="ad-cardhead"><h2>🧐 Анализ ошибок</h2></div><div class="ad-field"><label for="errSelect">Тип систематической ошибки</label><select id="errSelect"><option value="none" selected="selected">Ошибок нет</option><option value="jerk">Сдёргивание на выпуске</option><option value="cant">Завал лука</option><option value="hand">Опускание левой руки</option><option value="shortdraw">Недотяг тетивы</option><option value="aim">Передерживание прицела</option></select></div><div class="ad-btnrow"><button id="autoErrBtn" type="button" class="ad-btn ghost small">🔎 Определить автоматически</button></div><div id="autoBox"><p class="ad-radioshead">1. Куда чаще всего уходят плохие стрелы?</p><div class="ad-radios"><label><input type="radio" name="qdir" value="up"/>Вверх</label><label><input type="radio" name="qdir" value="down"/>Вниз</label><label><input type="radio" name="qdir" value="left"/>Влево</label><label><input type="radio" name="qdir" value="right"/>Вправо</label></div><p class="ad-radioshead">2. Вы стреляете…</p><div class="ad-radios"><label><input type="radio" name="qhand" value="right" checked="checked"/>Правой рукой (правша)</label><label><input type="radio" name="qhand" value="left"/>Левой рукой (левша)</label></div><p class="ad-radioshead">3. Кисть стреляющей руки после выстрела…</p><div class="ad-radios"><label><input type="radio" name="qarm" value="drop"/>Резко опускается</label><label><input type="radio" name="qarm" value="hold" checked="checked"/>Остаётся до попадания</label></div><div id="autoResult" class="ad-err"></div><div class="ad-btnrow"><button id="autoApply" type="button" class="ad-btn small">Определить</button><button id="autoClose" type="button" class="ad-btn ghost small">Закрыть</button></div></div></section><div class="ad-btnrow"><button id="saveBtn" type="button" class="ad-btn">💾 Сохранить тренировку</button></div><p class="ad-hint">После сохранения тренировка появится в журнале и на графике прогресса.</p></main><script>
+(function () {
+  var app = document.getElementById("archer-app");
+  if (!app) return;
+  var t = {};
+  try { t = JSON.parse(localStorage.getItem("ad_theme") || "{}"); } catch (e) {}
+  if (t.mode === "dark") app.classList.add("dark");
+  if (t.accent) app.classList.add("acc-" + t.accent);
+  window.ADAPI = {
+    user: function () { try { return JSON.parse(localStorage.getItem("ad_user") || "null"); } catch (e) { return null; } },
+    setUser: function (u) { localStorage.setItem("ad_user", JSON.stringify(u)); },
+    users: function () { try { return JSON.parse(localStorage.getItem("ad_users") || "[]"); } catch (e) { return []; } },
+    saveUsers: function (a) { localStorage.setItem("ad_users", JSON.stringify(a)); },
+    entries: function () {
+      var u = this.user(); if (!u) return [];
+      try { return JSON.parse(localStorage.getItem("ad_entries_" + u.email) || "[]"); } catch (e) { return []; }
+    },
+    saveEntries: function (a) {
+      var u = this.user(); if (!u) return;
+      localStorage.setItem("ad_entries_" + u.email, JSON.stringify(a));
+    },
+    logout: function () { localStorage.removeItem("ad_user"); location.href = "index.html"; }
+  };
+  var u = window.ADAPI.user();
+  var ub = document.getElementById("userEmail");
+  if (ub && u) ub.textContent = u.name ? u.name + " · " + u.email : u.email;
+  var out = document.getElementById("logoutBtn");
+  if (out) out.addEventListener("click", window.ADAPI.logout);
+})();
+</script><script>
+if (!localStorage.getItem("ad_user")) location.replace("index.html");
+</script><script>
+(function () {
+  var api = window.ADAPI;
+  var box = document.getElementById("targetBox");
+  var arrows = [];      // текущая серия: очки выстрелов
+  var dots = [];        // точки на мишени
+  var ends = [];        // завершённые серии (массивы очков)
+  var endSize = 3;
+
+  // ----- мишень (SVG, 10 колец) -----
+  var NS = "http://www.w3.org/2000/svg";
+  var RINGS = [
+    [50, "#efe9d8"], [45, "#fbf7ee"],
+    [40, "#333333"], [35, "#454545"],
+    [30, "#4f8ec4"], [25, "#639fd2"],
+    [20, "#cf5646"], [15, "#da6a5b"],
+    [10, "#f0d264"], [5,  "#f6e07e"]
+  ];
+  function buildTarget() {
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 100 100");
+    for (var i = 0; i < RINGS.length; i++) {
+      var c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", 50); c.setAttribute("cy", 50);
+      c.setAttribute("r", RINGS[i][0]);
+      c.setAttribute("fill", RINGS[i][1]);
+      c.setAttribute("stroke", "rgba(20,24,20,.25)");
+      c.setAttribute("stroke-width", ".3");
+      svg.appendChild(c);
+    }
+    box.appendChild(svg);
+  }
+  buildTarget();
+
+  function scoreAt(x, y) {   // x,y в процентах 0..100
+    var d = Math.sqrt((x - 50) * (x - 50) + (y - 50) * (y - 50));
+    if (d > 50) return 0;   // мимо колец — промах
+    return 10 - Math.floor(d / 5);
+  }
+
+  function updCounters() {
+    var sum = 0;
+    for (var i = 0; i < arrows.length; i++) sum += arrows[i];
+    document.getElementById("arrowCount").textContent = arrows.length;
+    document.getElementById("sumCount").textContent = sum;
+    document.getElementById("endProgress").textContent =
+      "Серия: " + arrows.length + " из " + endSize;
+  }
+
+  function addArrow(x, y) {
+    if (arrows.length >= endSize) return;
+    var sc = scoreAt(x, y);
+    arrows.push(sc);
+    var dot = document.createElement("div");
+    dot.className = "ad-arrowdot";
+    dot.style.left = x + "%";
+    dot.style.top = y + "%";
+    if (sc === 0) dot.style.opacity = ".55";
+    box.appendChild(dot);
+    dots.push(dot);
+    updCounters();
+    if (arrows.length === endSize) {
+      setTimeout(function () {
+        ends.push(arrows.slice());
+        arrows = [];
+        dots.forEach(function (d) { d.remove(); });
+        dots = [];
+        renderBlank();
+        updCounters();
+      }, 350);
+    }
+  }
+
+  box.addEventListener("click", function (ev) {
+    var r = box.getBoundingClientRect();
+    var x = ((ev.clientX - r.left) / r.width) * 100;
+    var y = ((ev.clientY - r.top) / r.height) * 100;
+    addArrow(x, y);
+  });
+
+  document.getElementById("undoBtn").addEventListener("click", function () {
+    arrows.pop();
+    var d = dots.pop();
+    if (d) d.remove();
+    updCounters();
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    arrows = [];
+    dots.forEach(function (d) { d.remove(); });
+    dots = [];
+    updCounters();
+  });
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('input[name="endSize"]'),
+    function (r) {
+      r.addEventListener("change", function () {
+        endSize = parseInt(r.value, 10);
+        document.getElementById("endProgress").textContent =
+          "Серия: " + arrows.length + " из " + endSize;
+      });
+    });
+
+  // ----- бланк серий -----
+  function renderBlank() {
+    var tbody = document.getElementById("blankBody");
+    var empty = document.getElementById("blankEmpty");
+    tbody.innerHTML = "";
+    if (!ends.length) { empty.style.display = ""; return; }
+    empty.style.display = "none";
+    var tShots = 0, tHits = 0, tSum = 0;
+    ends.forEach(function (scores, idx) {
+      var sum = 0, hits = 0;
+      scores.forEach(function (s) { sum += s; if (s > 0) hits++; });
+      tShots += scores.length; tHits += hits; tSum += sum;
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>" + (idx + 1) + "</td>" +
+        "<td>" + scores.join(", ") + "</td>" +
+        '<td class="num">' + hits + "</td>" +
+        '<td class="num">' + sum + "</td>" +
+        '<td class="num">' + (sum / scores.length).toFixed(1) + "</td>";
+      tbody.appendChild(tr);
+    });
+    var trT = document.createElement("tr");
+    trT.className = "total";
+    trT.innerHTML =
+      "<td>Итого</td>" +
+      "<td>" + tShots + " выстр.</td>" +
+      '<td class="num">' + tHits + "</td>" +
+      '<td class="num">' + tSum + "</td>" +
+      '<td class="num">' + (tShots ? (tSum / tShots).toFixed(1) : "0") + "</td>";
+    tbody.appendChild(trT);
+  }
+
+  // ----- автоопределение ошибки (анкета) -----
+  function radioVal(name) {
+    var r = document.querySelector('input[name="' + name + '"]:checked');
+    return r ? r.value : null;
+  }
+  var autoGuess = null;
+  document.getElementById("autoErrBtn").addEventListener("click", function () {
+    document.getElementById("autoBox").style.display = "";
+  });
+  document.getElementById("autoClose").addEventListener("click", function () {
+    document.getElementById("autoBox").style.display = "none";
+  });
+  document.getElementById("autoApply").addEventListener("click", function () {
+    var dir = radioVal("qdir"), hand = radioVal("qhand"), arm = radioVal("qarm");
+    var res = document.getElementById("autoResult");
+    if (!dir || !hand || !arm) {
+      res.textContent = "Ответьте на все три вопроса анкеты.";
+      res.classList.add("show");
+      return;
+    }
+    var guess;
+    if (dir === "up") guess = "Передерживание прицела";
+    else if (dir === "down") guess = (arm === "drop") ? "Опускание левой руки" : "Недотяг тетивы";
+    else if (dir === "left") guess = (hand === "right") ? "Завал лука" : "Сдёргивание на выпуске";
+    else guess = (hand === "right") ? "Сдёргивание на выпуске" : "Завал лука";
+    var guessValue = {
+      "Передерживание прицела": "aim",
+      "Опускание левой руки": "hand",
+      "Недотяг тетивы": "shortdraw",
+      "Завал лука": "cant",
+      "Сдёргивание на выпуске": "jerk"
+    };
+    autoGuess = guess;
+    document.getElementById("errSelect").value = guessValue[guess];
+    res.textContent = "Предположительно: " + guess + ". Ошибка подставлена в список выше — при желании измените её вручную.";
+    res.classList.add("show");
+  });
+
+  // ----- сохранение -----
+  document.getElementById("recDate").value = new Date().toISOString().slice(0, 10);
+  document.getElementById("saveBtn").addEventListener("click", function () {
+    var err = document.getElementById("recErr");
+    if (!ends.length && !arrows.length) {
+      err.textContent = "Сначала сделайте хотя бы один выстрел по мишени.";
+      err.classList.add("show");
+      return;
+    }
+    err.classList.remove("show");
+    var list = ends.slice();
+    if (arrows.length) list.push(arrows.slice());
+    var shots = 0, hits = 0, sum = 0;
+    var endsData = list.map(function (scores) {
+      var eSum = 0, eHits = 0;
+      scores.forEach(function (s) { eSum += s; if (s > 0) eHits++; });
+      shots += scores.length; hits += eHits; sum += eSum;
+      return { scores: scores, hits: eHits, sum: eSum, avg: +(eSum / scores.length).toFixed(1) };
+    });
+    var entry = {
+      id: Date.now(),
+      date: document.getElementById("recDate").value,
+      dist: parseInt(document.getElementById("recDist").value, 10),
+      ends: endsData,
+      shots: shots, hits: hits, sum: sum,
+      avg: shots ? +(sum / shots).toFixed(1) : 0,
+      error: document.getElementById("errSelect").value
+    };
+    var all = api.entries();
+    all.push(entry);
+    api.saveEntries(all);
+    var ok = document.getElementById("saveOk");
+    ok.textContent = "Тренировка сохранена: " + shots + " стрел, " + sum + " очков. Открываем журнал…";
+    ok.classList.add("show");
+    setTimeout(function () { location.href = "journal.html"; }, 900);
+  });
+})();
+</script></div>
+</body>
+</html>

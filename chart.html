@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дневник лучника — график прогресса</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%B9%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; } body {margin: 0;}#chartEmpty{display:none;}.ad-app{--ink:#1d2420;--mut:#6b7570;--line:#d9d6cd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#f2f1ee;--card:#fff;--red:#b3402f;font-family:Montserrat, Tahoma, Verdana, sans-serif;color:var(--ink);background-color:var(--bg);min-height:100vh;}.ad-app *{box-sizing:border-box;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;}.ad-app.acc-blue{--acc:#1a5fb4;--acc-rgb:26,95,180;}.ad-app.acc-wine{--acc:#8a3342;--acc-rgb:138,51,66;}.ad-app.acc-amber{--acc:#a2651c;--acc-rgb:162,101,28;}.ad-app.acc-plum{--acc:#6b2f8f;--acc-rgb:107,47,143;}.ad-app.dark{--ink:#eae8e0;--mut:#96a096;--line:#39413a;--bg:#141814;--card:#1e241e;}.ad-top{display:flex;align-items:center;row-gap:14px;column-gap:14px;flex-wrap:wrap;padding-top:14px;padding-right:24px;padding-bottom:14px;padding-left:24px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);background-color:var(--card);}.ad-brand{font-weight:700;font-size:16px;margin-right:auto;}.ad-nav{display:flex;row-gap:4px;column-gap:4px;flex-wrap:wrap;}.ad-nav a{color:rgb(26, 79, 156);text-decoration-line:none;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;font-size:14px;padding-top:5px;padding-right:8px;padding-bottom:5px;padding-left:8px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;}.ad-nav a:hover{color:var(--ink);}.ad-app.dark .ad-nav a{color:rgb(127, 178, 224);}.ad-nav a.cur{color:rgb(124, 45, 45);background-color:rgb(244, 242, 236);font-weight:700;text-decoration-line:underline;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;}.ad-app.dark .ad-nav a.cur{color:rgb(230, 176, 164);background-color:rgb(38, 48, 42);}.ad-userbox{display:flex;align-items:center;row-gap:8px;column-gap:8px;font-size:14px;color:var(--mut);}.ad-linkbtn{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--mut);cursor:pointer;font-size:14px;padding-top:6px;padding-right:10px;padding-bottom:6px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;font-family:inherit;}.ad-linkbtn:hover{color:var(--red);}.ad-main{max-width:680px;margin-top:0px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:34px;padding-right:20px;padding-bottom:64px;padding-left:20px;}.ad-card{background-color:var(--card);border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:14px;border-top-right-radius:14px;border-bottom-right-radius:14px;border-bottom-left-radius:14px;padding-top:18px;padding-right:18px;padding-bottom:18px;padding-left:18px;margin-bottom:16px;}.ad-cardhead{display:flex;align-items:center;justify-content:space-between;row-gap:10px;column-gap:10px;font-weight:700;margin-bottom:12px;}.ad-mini{font-size:13px;color:var(--mut);}.ad-field{margin-bottom:12px;}.ad-field label{display:block;font-size:13px;color:var(--mut);margin-bottom:6px;font-weight:600;}.ad-field input, .ad-field select, .ad-field textarea{width:100%;padding-top:11px;padding-right:12px;padding-bottom:11px;padding-left:12px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-family:inherit;font-size:inherit;background-color:var(--bg);color:var(--ink);}.ad-field input:focus, .ad-field select:focus{outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.4);border-top-color:var(--acc);}.ad-seg button{flex-grow:1;flex-shrink:1;flex-basis:0%;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;font-family:inherit;font-weight:600;font-size:14px;padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;color:var(--mut);cursor:pointer;}.ad-seg button.cur{background-color:var(--acc);color:rgb(255, 255, 255);}.ad-app.dark .ad-err{color:rgb(232, 167, 155);}.ad-app.dark .ad-ok{color:rgb(143, 211, 180);}.ad-hero h1{font-size:34px;font-weight:800;margin-bottom:12px;max-width:72%;}.ad-hero .ad-lead{font-size:16px;line-height:1.5;max-width:56%;opacity:0.94;}.ad-hero .ad-lead2{font-size:13px;margin-top:8px;max-width:56%;opacity:0.75;}.ad-table th, .ad-table td{border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;text-align:left;white-space-collapse:collapse;text-wrap-mode:nowrap;}.ad-table th{font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--mut);}.ad-table td.num, .ad-table th.num{text-align:right;}.ad-table tr.total td{font-weight:700;border-top-width:2px;border-top-style:solid;border-top-color:var(--line);}.ad-table .del{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--red);cursor:pointer;font-weight:700;padding-top:4px;padding-right:8px;padding-bottom:4px;padding-left:8px;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;font-size:14px;font-family:inherit;}.ad-empty{text-align:center;color:var(--mut);padding-top:26px;padding-right:10px;padding-bottom:26px;padding-left:10px;font-size:14px;}.ad-radios label{display:inline-flex;align-items:center;row-gap:6px;column-gap:6px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);background-color:var(--bg);border-top-left-radius:999px;border-top-right-radius:999px;border-bottom-right-radius:999px;border-bottom-left-radius:999px;padding-top:7px;padding-right:14px;padding-bottom:7px;padding-left:14px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);}.ad-radios input{accent-color:var(--acc);}.ad-targetbox svg{display:block;width:100%;height:100%;}.ad-stats b{color:var(--ink);font-size:20px;font-weight:800;}.ad-statline{display:flex;row-gap:18px;column-gap:18px;flex-wrap:wrap;font-size:14px;color:var(--mut);margin-top:12px;}.ad-statline b{color:var(--ink);font-size:17px;font-weight:800;}.ad-chart{width:100%;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:12px;border-top-right-radius:12px;border-bottom-right-radius:12px;border-bottom-left-radius:12px;background-color:var(--card);display:block;}.ad-legend{display:flex;row-gap:14px;column-gap:14px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:10px;}.ad-legend i{display:inline-block;width:10px;height:10px;border-top-left-radius:50%;border-top-right-radius:50%;border-bottom-right-radius:50%;border-bottom-left-radius:50%;background-color:var(--acc);margin-right:6px;}.ad-themeopt.cur{border-top-color:var(--acc);border-right-color:var(--acc);border-bottom-color:var(--acc);border-left-color:var(--acc);outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.35);}.ad-swatch.cur{border-top-color:var(--ink);border-right-color:var(--ink);border-bottom-color:var(--ink);border-left-color:var(--ink);outline-width:2px;outline-style:solid;outline-color:var(--acc);outline-offset:1px;}.ad-chartcard .ad-chart{height:300px;}@media (max-width: 640px){.ad-hero h1{font-size:26px;max-width:100%;}.ad-hero .ad-lead, .ad-hero .ad-lead2{max-width:100%;}}
+</style>
+</head>
+<body>
+<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html">Записать</a><a href="chart.html" class="cur">График</a><a href="journal.html">Журнал</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main ad-chartcard"><section class="ad-card"><div class="ad-cardhead"><h2>📈 Прогресс</h2><div id="distFilterWrap" class="ad-field"><select id="chartDist"><option value="all">Все дистанции</option></select></div></div><div><canvas id="chartCanvas" class="ad-chart"></canvas></div><div class="ad-legend"><span><i></i>Очки за тренировку (сумма серий)</span></div><div id="chartStat" class="ad-statline"></div><div id="chartEmpty" class="ad-empty">Пока нет тренировок — запишите первую на странице «Записать», и график оживёт.</div></section><section class="ad-card"><div class="ad-cardhead"><h2>💡 Как читать график</h2></div><p class="ad-mini">Каждая точка — отдельная тренировка, точки идут в хронологическом порядке. Если в один день тренировок несколько, они идут подряд с общей подписью даты.</p><p class="ad-mini">Фильтр по дистанции помогает сравнивать результаты на одинаковых условиях: рост линии — прогресс.</p></section></main><script>
+(function () {
+  var app = document.getElementById("archer-app");
+  if (!app) return;
+  var t = {};
+  try { t = JSON.parse(localStorage.getItem("ad_theme") || "{}"); } catch (e) {}
+  if (t.mode === "dark") app.classList.add("dark");
+  if (t.accent) app.classList.add("acc-" + t.accent);
+  window.ADAPI = {
+    user: function () { try { return JSON.parse(localStorage.getItem("ad_user") || "null"); } catch (e) { return null; } },
+    setUser: function (u) { localStorage.setItem("ad_user", JSON.stringify(u)); },
+    users: function () { try { return JSON.parse(localStorage.getItem("ad_users") || "[]"); } catch (e) { return []; } },
+    saveUsers: function (a) { localStorage.setItem("ad_users", JSON.stringify(a)); },
+    entries: function () {
+      var u = this.user(); if (!u) return [];
+      try { return JSON.parse(localStorage.getItem("ad_entries_" + u.email) || "[]"); } catch (e) { return []; }
+    },
+    saveEntries: function (a) {
+      var u = this.user(); if (!u) return;
+      localStorage.setItem("ad_entries_" + u.email, JSON.stringify(a));
+    },
+    logout: function () { localStorage.removeItem("ad_user"); location.href = "index.html"; }
+  };
+  var u = window.ADAPI.user();
+  var ub = document.getElementById("userEmail");
+  if (ub && u) ub.textContent = u.name ? u.name + " · " + u.email : u.email;
+  var out = document.getElementById("logoutBtn");
+  if (out) out.addEventListener("click", window.ADAPI.logout);
+})();
+</script><script>
+if (!localStorage.getItem("ad_user")) location.replace("index.html");
+</script><script>
+(function () {
+  var api = window.ADAPI;
+  var canvas = document.getElementById("chartCanvas");
+  var distSel = document.getElementById("chartDist");
+  var statLine = document.getElementById("chartStat");
+  var emptyBox = document.getElementById("chartEmpty");
+  var ctx = canvas.getContext("2d");
+
+  function num(v) {
+    var n = Number(v);
+    return isFinite(n) ? n : 0;
+  }
+
+  function vars() {
+    var cs = getComputedStyle(document.getElementById("archer-app"));
+    return {
+      acc: cs.getPropertyValue("--acc").trim() || "#1f6f50",
+      ink: cs.getPropertyValue("--ink").trim() || "#1d2420",
+      mut: cs.getPropertyValue("--mut").trim() || "#6b7570",
+      line: cs.getPropertyValue("--line").trim() || "#d9d6cd"
+    };
+  }
+
+  // Каждая тренировка — отдельная точка. Битые записи (нет даты/суммы)
+  // превращаются в корректную точку с нулями вместо поломки графика.
+  function data() {
+    var all = api.entries();
+    var dist = distSel.value;
+    var list = dist === "all" ? all.slice() : all.filter(function (e) { return String(e.dist) === dist; });
+    var pts = list.map(function (e) {
+      var d = (typeof e.date === "string" && e.date) ? e.date : "—";
+      return { date: d, sum: num(e.sum), shots: num(e.shots), id: e.id, dist: e.dist };
+    });
+    pts.sort(function (a, b) {
+      var ka = a.date + ":" + String(a.id == null ? "" : a.id);
+      var kb = b.date + ":" + String(b.id == null ? "" : b.id);
+      return ka.localeCompare(kb);
+    });
+    return pts;
+  }
+
+  function fmtDate(d) {
+    if (d === "—" || d.length < 10) return d;
+    return d.slice(8, 10) + "." + d.slice(5, 7);
+  }
+
+  function fillDistFilter() {
+    var all = api.entries();
+    var cur = distSel.value;
+    var ds = [];
+    all.forEach(function (e) { if (ds.indexOf(e.dist) === -1) ds.push(e.dist); });
+    ds.sort(function (a, b) { return a - b; });
+    var opts = '<option value="all">Все дистанции</option>' + ds.map(function (d) {
+      return '<option value="' + d + '">' + d + ' м</option>';
+    }).join("");
+    distSel.innerHTML = opts;
+    if (cur) distSel.value = cur;
+  }
+
+  function draw() {
+    var pts = data();
+    var v = vars();
+    var wrap = canvas.parentNode.getBoundingClientRect();
+    var W = Math.max(wrap.width || 600, 260);
+    var H = 300;
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    if (pts.length === 0) {
+      canvas.style.display = "none";
+      document.querySelector(".ad-legend").style.display = "none";
+      statLine.textContent = "";
+      emptyBox.style.display = "";
+      return;
+    }
+    canvas.style.display = "block";
+    document.querySelector(".ad-legend").style.display = "";
+    emptyBox.style.display = "none";
+
+    var pad = { l: 46, r: 18, t: 18, b: 42 };
+    var iw = W - pad.l - pad.r;
+    var ih = H - pad.t - pad.b;
+    var maxY = 0;
+    pts.forEach(function (p) { if (p.sum > maxY) maxY = p.sum; });
+    maxY = Math.max(maxY + 2, 10);
+    var step = Math.ceil(maxY / 5);
+    var top = Math.ceil(maxY / step) * step;
+
+    function X(i) { return pts.length === 1 ? pad.l + iw / 2 : pad.l + (iw * i) / (pts.length - 1); }
+    function Y(val) { return pad.t + ih - (ih * val) / top; }
+
+    // сетка + подписи Y
+    ctx.font = "11px Montserrat, Tahoma, sans-serif";
+    ctx.strokeStyle = v.line;
+    ctx.fillStyle = v.mut;
+    ctx.lineWidth = 1;
+    for (var g = 0; g <= top; g += step) {
+      var gy = Y(g);
+      ctx.beginPath();
+      ctx.moveTo(pad.l, gy);
+      ctx.lineTo(W - pad.r, gy);
+      ctx.stroke();
+      ctx.textAlign = "right";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(g), pad.l - 8, gy);
+    }
+
+    // подписи X: первая дата из подряд идущих тренировок одного дня
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    var maxLabels = Math.max(2, Math.floor(iw / 78));
+    var every = Math.ceil(pts.length / maxLabels);
+    var shownDate = {};
+    for (var i = 0; i < pts.length; i++) {
+      if (i !== pts.length - 1 && i % every !== 0) continue;
+      if (shownDate[pts[i].date]) continue;
+      shownDate[pts[i].date] = true;
+      ctx.fillText(fmtDate(pts[i].date), X(i), pad.t + ih + 8);
+    }
+
+    // заливка под линией
+    ctx.beginPath();
+    ctx.moveTo(X(0), pad.t + ih);
+    pts.forEach(function (p, idx) { ctx.lineTo(X(idx), Y(p.sum)); });
+    ctx.lineTo(X(pts.length - 1), pad.t + ih);
+    ctx.closePath();
+    ctx.globalAlpha = 0.12;
+    ctx.fillStyle = v.acc;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // линия
+    ctx.beginPath();
+    pts.forEach(function (p, idx) {
+      if (idx === 0) ctx.moveTo(X(idx), Y(p.sum));
+      else ctx.lineTo(X(idx), Y(p.sum));
+    });
+    ctx.strokeStyle = v.acc;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = "round";
+    ctx.stroke();
+
+    // точки и значения
+    pts.forEach(function (p, idx) {
+      ctx.beginPath();
+      ctx.arc(X(idx), Y(p.sum), 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = v.acc;
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = v.ink === "#eae8e0" ? "#141814" : "#ffffff";
+      ctx.stroke();
+      ctx.fillStyle = v.ink;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "bottom";
+      ctx.fillText(String(p.sum), X(idx), Y(p.sum) - 9);
+    });
+
+    // статистика
+    var sums = pts.map(function (p) { return p.sum; });
+    var best = 0;
+    sums.forEach(function (s) { if (s > best) best = s; });
+    var total = sums.reduce(function (a, b) { return a + b; }, 0);
+    var avg = sums.length ? total / sums.length : 0;
+    var shots = pts.reduce(function (a, p) { return a + p.shots; }, 0);
+    statLine.innerHTML =
+      '<span>Тренировок: <b>' + sums.length + "</b></span>" +
+      '<span>Лучший результат: <b>' + best + "</b></span>" +
+      '<span>Средний: <b>' + avg.toFixed(1) + "</b></span>" +
+      '<span>Стрел выпущено: <b>' + shots + "</b></span>";
+  }
+
+  fillDistFilter();
+  distSel.addEventListener("change", draw);
+  window.addEventListener("resize", draw);
+  draw();
+})();
+</script></div>
+</body>
+</html>

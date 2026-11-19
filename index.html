@@ -3,837 +3,111 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Дневник лучника</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏹</text></svg>">
+<title>Дневник лучника — регистрация</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%B9%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; } body {margin: 0;}.ad-app{--ink:#1d2420;--mut:#6b7570;--line:#d9d6cd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#f2f1ee;--card:#fff;--red:#b3402f;font-family:Montserrat, Tahoma, Verdana, sans-serif;color:var(--ink);background-color:var(--bg);min-height:100vh;}.ad-app *{box-sizing:border-box;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;}.ad-app.acc-blue{--acc:#1a5fb4;--acc-rgb:26,95,180;}.ad-app.acc-wine{--acc:#8a3342;--acc-rgb:138,51,66;}.ad-app.acc-amber{--acc:#a2651c;--acc-rgb:162,101,28;}.ad-app.acc-plum{--acc:#6b2f8f;--acc-rgb:107,47,143;}.ad-app.dark{--ink:#eae8e0;--mut:#96a096;--line:#39413a;--bg:#141814;--card:#1e241e;}.ad-top{display:flex;align-items:center;row-gap:14px;column-gap:14px;flex-wrap:wrap;padding-top:14px;padding-right:24px;padding-bottom:14px;padding-left:24px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);background-color:var(--card);}.ad-brand{font-weight:700;font-size:16px;margin-right:auto;}.ad-nav a{color:rgb(26, 79, 156);text-decoration-line:none;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;font-size:14px;padding-top:5px;padding-right:8px;padding-bottom:5px;padding-left:8px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;}.ad-nav a:hover{color:var(--ink);}.ad-app.dark .ad-nav a{color:rgb(127, 178, 224);}.ad-nav a.cur{color:rgb(124, 45, 45);background-color:rgb(244, 242, 236);font-weight:700;text-decoration-line:underline;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;}.ad-app.dark .ad-nav a.cur{color:rgb(230, 176, 164);background-color:rgb(38, 48, 42);}.ad-main{max-width:680px;margin-top:0px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:34px;padding-right:20px;padding-bottom:64px;padding-left:20px;}.ad-card{background-color:var(--card);border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:14px;border-top-right-radius:14px;border-bottom-right-radius:14px;border-bottom-left-radius:14px;padding-top:18px;padding-right:18px;padding-bottom:18px;padding-left:18px;margin-bottom:16px;}.ad-cardhead{display:flex;align-items:center;justify-content:space-between;row-gap:10px;column-gap:10px;font-weight:700;margin-bottom:12px;}.ad-hint{font-size:13px;color:var(--mut);margin-top:10px;}.ad-btn{display:inline-block;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;padding-top:12px;padding-right:22px;padding-bottom:12px;padding-left:22px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;background-color:var(--acc);color:rgb(255, 255, 255);}.ad-btn:hover{filter:brightness(1.08);}.ad-btn.ghost{background-color:transparent;color:var(--acc);border-top-width:1px;border-top-style:solid;border-top-color:rgba(var(--acc-rgb),.45);}.ad-btn.small{padding-top:8px;padding-right:14px;padding-bottom:8px;padding-left:14px;font-size:13px;}.ad-btnrow{display:flex;row-gap:10px;column-gap:10px;flex-wrap:wrap;margin-top:14px;}.ad-field{margin-bottom:12px;}.ad-field label{display:block;font-size:13px;color:var(--mut);margin-bottom:6px;font-weight:600;}.ad-field input, .ad-field select, .ad-field textarea{width:100%;padding-top:11px;padding-right:12px;padding-bottom:11px;padding-left:12px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-family:inherit;font-size:inherit;background-color:var(--bg);color:var(--ink);}.ad-field input:focus, .ad-field select:focus{outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.4);border-top-color:var(--acc);}.ad-seg{display:flex;background-color:var(--bg);border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;padding-top:4px;padding-right:4px;padding-bottom:4px;padding-left:4px;row-gap:4px;column-gap:4px;margin-bottom:16px;}.ad-seg button{flex-grow:1;flex-shrink:1;flex-basis:0%;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;font-family:inherit;font-weight:600;font-size:14px;padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;color:var(--mut);cursor:pointer;}.ad-seg button.cur{background-color:var(--acc);color:rgb(255, 255, 255);}.ad-err{display:none;background-color:rgba(179, 64, 47, 0.12);border-top-width:1px;border-top-style:solid;border-top-color:rgba(179, 64, 47, 0.45);border-right-width:1px;border-right-style:solid;border-right-color:rgba(179, 64, 47, 0.45);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(179, 64, 47, 0.45);border-left-width:1px;border-left-style:solid;border-left-color:rgba(179, 64, 47, 0.45);color:rgb(160, 60, 46);padding-top:10px;padding-right:12px;padding-bottom:10px;padding-left:12px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-size:14px;margin-bottom:12px;}.ad-app.dark .ad-err{color:rgb(232, 167, 155);}.ad-err.show{display:block;}.ad-app.dark .ad-ok{color:rgb(143, 211, 180);}.ad-hero{position:relative;overflow-x:hidden;overflow-y:hidden;border-top-left-radius:16px;border-top-right-radius:16px;border-bottom-right-radius:16px;border-bottom-left-radius:16px;padding-top:46px;padding-right:34px;padding-bottom:46px;padding-left:34px;color:rgb(242, 245, 239);background-image:radial-gradient(circle at 84% 42%, rgb(240, 210, 100) 0px, rgb(240, 210, 100) 4.5%, rgb(22, 36, 26) 4.5%, rgb(22, 36, 26) 7%, rgb(207, 86, 70) 7%, rgb(207, 86, 70) 11.5%, rgb(22, 36, 26) 11.5%, rgb(22, 36, 26) 14%, rgb(233, 225, 206) 14%, rgb(233, 225, 206) 18%, rgb(22, 36, 26) 18%, rgb(22, 36, 26) 20.5%, rgb(76, 138, 104) 20.5%, rgb(76, 138, 104) 24.5%, rgb(22, 36, 26) 24.5%, rgb(22, 36, 26) 100%);background-color:rgb(22, 36, 26);}.ad-hero h1{font-size:34px;font-weight:800;margin-bottom:12px;max-width:72%;}.ad-hero .ad-lead{font-size:16px;line-height:1.5;max-width:56%;opacity:0.94;}.ad-hero .ad-lead2{font-size:13px;margin-top:8px;max-width:56%;opacity:0.75;}.ad-chips{display:flex;row-gap:8px;column-gap:8px;flex-wrap:wrap;margin-top:20px;}.ad-chip{background-color:rgba(255, 255, 255, 0.12);border-top-width:1px;border-top-style:solid;border-top-color:rgba(255, 255, 255, 0.22);border-right-width:1px;border-right-style:solid;border-right-color:rgba(255, 255, 255, 0.22);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(255, 255, 255, 0.22);border-left-width:1px;border-left-style:solid;border-left-color:rgba(255, 255, 255, 0.22);color:rgb(242, 245, 239);font-size:13px;padding-top:6px;padding-right:12px;padding-bottom:6px;padding-left:12px;border-top-left-radius:999px;border-top-right-radius:999px;border-bottom-right-radius:999px;border-bottom-left-radius:999px;}.ad-table th, .ad-table td{border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;text-align:left;white-space-collapse:collapse;text-wrap-mode:nowrap;}.ad-table th{font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--mut);}.ad-table td.num, .ad-table th.num{text-align:right;}.ad-table tr.total td{font-weight:700;border-top-width:2px;border-top-style:solid;border-top-color:var(--line);}.ad-table .del{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--red);cursor:pointer;font-weight:700;padding-top:4px;padding-right:8px;padding-bottom:4px;padding-left:8px;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;font-size:14px;font-family:inherit;}.ad-radios label{display:inline-flex;align-items:center;row-gap:6px;column-gap:6px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);background-color:var(--bg);border-top-left-radius:999px;border-top-right-radius:999px;border-bottom-right-radius:999px;border-bottom-left-radius:999px;padding-top:7px;padding-right:14px;padding-bottom:7px;padding-left:14px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);}.ad-radios input{accent-color:var(--acc);}.ad-targetbox svg{display:block;width:100%;height:100%;}.ad-stats b{color:var(--ink);font-size:20px;font-weight:800;}.ad-statline b{color:var(--ink);font-size:17px;font-weight:800;}.ad-legend i{display:inline-block;width:10px;height:10px;border-top-left-radius:50%;border-top-right-radius:50%;border-bottom-right-radius:50%;border-bottom-left-radius:50%;background-color:var(--acc);margin-right:6px;}.ad-themeopt.cur{border-top-color:var(--acc);border-right-color:var(--acc);border-bottom-color:var(--acc);border-left-color:var(--acc);outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.35);}.ad-swatch.cur{border-top-color:var(--ink);border-right-color:var(--ink);border-bottom-color:var(--ink);border-left-color:var(--ink);outline-width:2px;outline-style:solid;outline-color:var(--acc);outline-offset:1px;}.ad-top .ad-toplink{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--mut);cursor:pointer;font-size:14px;padding-top:6px;padding-right:10px;padding-bottom:6px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;font-family:inherit;font-weight:600;}.ad-top .ad-toplink:hover{color:var(--acc);}@media (max-width: 640px){.ad-hero h1{font-size:26px;max-width:100%;}.ad-hero .ad-lead, .ad-hero .ad-lead2{max-width:100%;}}
+</style>
 </head>
 <body>
-<!-- ===== ДНЕВНИК ЛУЧНИКА · НАЧАЛО (для блока T123 на Тильде копируйте отсюда) ===== -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
-#archer-app{--ink:#1d2420;--mut:#6b7570;--line:#d9d6cd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#f2f1ee;--bg-rgb:242,241,238;--red:#b3402f;
-  font-family:'Montserrat',Tahoma,Verdana,sans-serif;
-  color:var(--ink);
-  background-color:var(--bg);
-  min-height:100vh}
-#archer-app *{box-sizing:border-box;margin:0;padding:0}
-#archer-app .top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 24px;border-bottom:1px solid var(--line);position:relative;background:#fff}
-#archer-app .thememenu{position:absolute;top:calc(100% + 6px);right:14px;z-index:40;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 28px rgba(0,0,0,.14)}
-#archer-app .swatches{display:grid;grid-template-columns:repeat(5,30px);gap:8px}
-#archer-app .swatch{width:30px;height:30px;border-radius:50%;border:2px solid rgba(0,0,0,.08);cursor:pointer;padding:0}
-#archer-app .swatch:hover{transform:scale(1.12)}
-#archer-app .swatch.cur{border-color:#fff;box-shadow:0 0 0 2px var(--ink)}
-#archer-app .brand{font-weight:700;font-size:16px;margin-right:auto}
-#archer-app .nav{display:flex;gap:4px}
-#archer-app .nav a{color:#1a4f9c;text-decoration:none;font-size:14px;padding:5px 8px;border-radius:3px}
-#archer-app .nav a:hover{color:var(--ink)}
-#archer-app .nav a.cur{color:#7c2d2d;background:#f4f2ec;font-weight:700;text-decoration:underline}
-#archer-app .userbox{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut)}
-#archer-app .linkbtn{border:0;background:none;color:var(--mut);cursor:pointer;font-size:14px;padding:6px 10px;border-radius:8px}
-#archer-app .linkbtn:hover{color:var(--red)}
-#archer-app .main{max-width:680px;margin:0 auto;padding:34px 20px 64px}
-#archer-app .view{display:none}
-#archer-app .view.active{display:block;animation:ad-fade .25s ease}
-@keyframes ad-fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
-#archer-app .hero{
-  /* фон лэндинга (мишень и стрела). Чтобы поставить фото — замените на url("https://…/fon.jpg") */
-  --heroimg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='600' fill='%2315271d'/%3E%3Cg transform='translate(840,300)'%3E%3Ccircle r='245' fill='%2324382b'/%3E%3Ccircle r='196' fill='%232c4634'/%3E%3Ccircle r='147' fill='%2335523d'/%3E%3Ccircle r='98' fill='%234a6b50'/%3E%3Ccircle r='54' fill='%23d4b06a'/%3E%3Ccircle r='18' fill='%23efe0b2'/%3E%3C/g%3E%3Cg stroke='%23d8c69a' stroke-width='7' stroke-linecap='round'%3E%3Cline x1='140' y1='580' x2='800' y2='317'/%3E%3C/g%3E%3Cpath d='M841 300 L803 315 L810 332 Z' fill='%23e6d6a8'/%3E%3Cg stroke='%23cdbd92' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='152' y1='561' x2='190' y2='596'/%3E%3Cline x1='176' y1='550' x2='214' y2='585'/%3E%3C/g%3E%3C/svg%3E");
-  text-align:center;padding:56px 26px 48px;
-  background:linear-gradient(rgba(16,26,21,.55),rgba(16,26,21,.72)),var(--heroimg) center/cover no-repeat;
-  border-radius:6px;color:#fff}
-#archer-app .hero .tag{color:rgba(255,255,255,.88)}
-#archer-app .hero .mini{color:rgba(255,255,255,.72)}
-#archer-app .hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.9)}
-#archer-app .heroMark{font-size:52px;margin-bottom:16px}
-#archer-app h1{font-size:34px;letter-spacing:-.5px;margin-bottom:12px}
-#archer-app h2{font-size:19px;border-bottom:2px dashed var(--line);padding-bottom:6px}
-#archer-app .tag{font-size:17px;color:var(--mut);max-width:430px;margin:0 auto 8px}
-#archer-app .mini{font-size:13px;color:var(--mut)}
-#archer-app .row{display:flex;gap:10px;justify-content:center;margin-top:26px}
-#archer-app .btn{background:var(--acc);color:#fff;border:2px solid var(--acc);border-radius:4px;padding:10px 20px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
-#archer-app .btn:hover{filter:brightness(1.07)}
-#archer-app .btn.ghost{background:#fff;color:var(--acc);border:1px solid var(--acc)}
-#archer-app .card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px;max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
-#archer-app .card.wide{max-width:none}
-#archer-app .cardhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-#archer-app label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mut)}
-#archer-app input,#archer-app select{border:1px solid #a9a69c;border-radius:3px;padding:8px 10px;font-size:15px;color:var(--ink);background:#fff;width:100%;font-family:inherit}
-#archer-app input:focus,#archer-app select:focus{outline:none;border-color:var(--acc)}
-#archer-app .err{color:var(--red);font-size:13px;min-height:16px}
-#archer-app .ok{color:var(--acc);font-size:14px;font-weight:600;min-height:16px;text-align:center}
-#archer-app .switch{text-align:center}
-#archer-app a{color:var(--acc);text-decoration:none}
-#archer-app a:hover{text-decoration:underline}
-#archer-app table{width:100%;border-collapse:collapse;font-size:14px}
-#archer-app th{text-align:left;font-size:12px;color:var(--mut);font-weight:700;padding:6px 8px;border:1px solid var(--line);background:#f4f2ec}
-#archer-app td{padding:8px;border:1px solid var(--line)}
-#archer-app .del{border:0;background:none;color:var(--mut);cursor:pointer;font-size:13px;padding:4px 8px;border-radius:8px}
-#archer-app .del:hover{color:var(--red)}
-#archer-app .del.armed{color:var(--red);font-weight:600}
-#archer-app .radios{display:flex;flex-direction:column;gap:6px}
-#archer-app .radios .opt{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer}
-#archer-app .radios .opt input{width:auto}
-#archer-app .hint{font-size:13px;line-height:1.45;color:var(--mut);background:rgba(var(--acc-rgb),.07);border-left:3px solid var(--acc);padding:8px 10px;border-radius:0 8px 8px 0;margin-top:4px}
-#archer-app .targetbox{display:flex;flex-direction:column;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px}
-#archer-app #targetSvg{width:270px;max-width:100%;height:auto;cursor:crosshair;touch-action:manipulation}
-#archer-app .targetctl{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
-#archer-app .endsize{display:flex;align-items:center;gap:6px}
-#archer-app .endsize select{width:auto;padding:4px 8px;font-size:13px}
-#archer-app .sharemenu{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-#archer-app .sharebtn{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:#fff;cursor:pointer;font-size:13px;color:var(--ink);font-family:inherit}
-#archer-app .sharebtn:hover{border-color:var(--acc);color:var(--acc)}
-#archer-app .radioshead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-#archer-app .autobox{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;margin-top:6px}
-#archer-app .btnrow{display:flex;gap:6px;flex-wrap:wrap}
-#archer-app .chip{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--ink);font-family:inherit}
-#archer-app .chip.on{border-color:var(--acc);background:rgba(var(--acc-rgb),.1);color:var(--acc);font-weight:600}
-#archer-app .tablewrap{overflow-x:auto}
-#archer-app svg text{font-family:inherit}
-@media (max-width:520px){#archer-app h1{font-size:26px}#archer-app .main{padding-top:20px}}
-</style>
-
-<div id="archer-app">
-  <header class="top">
-    <span class="brand">🏹 Дневник лучника</span>
-    <nav class="nav">
-      <a href="#" data-go="entry">Записать</a>
-      <a href="#" data-go="chart">График</a>
-      <a href="#" data-go="log">Журнал</a>
-    </nav>
-    <button id="themeBtn" class="linkbtn" type="button" title="Цвет оформления">Тема</button>
-    <div id="themeMenu" class="thememenu" style="display:none">
-      <span class="mini">Цвет оформления</span>
-      <div id="swatches" class="swatches"></div>
-    </div>
-    <span class="userbox"><span id="userName"></span><button id="logoutBtn" class="linkbtn" type="button">Выйти</button></span>
-  </header>
-
-  <main class="main">
-
-    <section id="view-landing" class="view active">
-      <div class="hero">
-        <div class="heroMark">🏹</div>
-        <h1>Дневник лучника</h1>
-        <p class="tag">Записывайте результаты тренировок и следите за ростом своих очков.</p>
-        <p class="mini">Дата · дистанция · очки — график прогресса сам покажет, как идут дела.</p>
-        <div class="row">
-          <button class="btn" type="button" data-auth="register">Начать</button>
-          <button class="btn ghost" type="button" data-auth="login">Войти</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="view-auth" class="view">
-      <form id="authForm" class="card">
-        <h2 id="authTitle">Регистрация</h2>
-        <label>Электронная почта<input id="authName" type="email" required placeholder="example@mail.ru" autocomplete="off"></label>
-        <label>Пароль<input id="authPass" type="password" required minlength="3"></label>
-        <label id="pass2Wrap">Повторите пароль<input id="authPass2" type="password"></label>
-        <div id="authErr" class="err"></div>
-        <button class="btn" type="submit" id="authSubmit">Создать дневник</button>
-        <p class="mini switch"><span id="authSwitchText"></span> <a href="#" id="authSwitch"></a></p>
-      </form>
-    </section>
-
-    <section id="view-entry" class="view">
-      <form id="entryForm" class="card">
-        <h2>Ввод результатов стрельбы</h2>
-        <label>Дата тренировки<input type="date" id="entryDate" required></label>
-        <label>Дистанция, м<input type="number" id="entryDist" min="0" step="any" placeholder="например, 18" required></label>
-        <div class="targetbox">
-          <span class="mini">Мишень — кликните, куда попала стрела (клик мимо колец — промах)</span>
-          <svg id="targetSvg" viewBox="0 0 240 240" role="img" aria-label="Мишень для ввода попаданий">
-            <circle cx="120" cy="120" r="115" fill="none" stroke="#d8d5cc" stroke-dasharray="4 4"/>
-            <circle cx="120" cy="120" r="100" fill="#f7f6f2" stroke="#d8d5cc"/>
-            <circle cx="120" cy="120" r="90" fill="#fdfdfb" stroke="#e3e1d8"/>
-            <circle cx="120" cy="120" r="80" fill="#33342f" stroke="#22231f"/>
-            <circle cx="120" cy="120" r="70" fill="#3d3f39" stroke="#2b2c27"/>
-            <circle cx="120" cy="120" r="60" fill="#4f86d8" stroke="#3d72c4"/>
-            <circle cx="120" cy="120" r="50" fill="#5c91de" stroke="#4a7fcb"/>
-            <circle cx="120" cy="120" r="40" fill="#e05243" stroke="#c9402f"/>
-            <circle cx="120" cy="120" r="30" fill="#e6634f" stroke="#d04e39"/>
-            <circle cx="120" cy="120" r="20" fill="#f4c84f" stroke="#e2b52f"/>
-            <circle cx="120" cy="120" r="10" fill="#f9d96b" stroke="#e2b52f"/>
-          </svg>
-          <div class="targetctl">
-            <span id="seriesInfo" class="mini">Стрел: 0 · Сумма: 0</span>
-            <label class="endsize"><span class="mini">стрел в серии:</span>
-              <select id="endSize">
-                <option value="3" selected>3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-              </select>
-            </label>
-            <button type="button" id="undoArrow" class="linkbtn">Отменить стрелу</button>
-            <button type="button" id="resetSeries" class="linkbtn">Сбросить серию</button>
-          </div>
-        </div>
-        <label>Количество выстрелов<input type="number" id="entryShots" min="0" step="1" placeholder="например, 60"></label>
-        <label>Количество попаданий<input type="number" id="entryHits" min="0" step="1" placeholder="например, 54"></label>
-        <label>Набранные очки<input type="number" id="entryScore" min="0" step="1" placeholder="например, 280" required><span id="scoreOf" class="mini"></span></label>
-        <label>Средний балл (авто)<input type="number" id="entryAvg" min="0" step="any" placeholder="посчитается сам" readonly><span id="rankInfo" class="mini"></span></label>
-        <div class="radios">
-          <div class="radioshead">
-            <span class="mini">Систематическая ошибка</span>
-            <button type="button" id="autoErrorBtn" class="linkbtn">Определить автоматически</button>
-          </div>
-          <label class="opt"><input type="radio" name="entryError" value="Ошибок нет" checked>Ошибок нет</label>
-          <label class="opt"><input type="radio" name="entryError" value="Сдёргивание на выпуске">Сдёргивание на выпуске</label>
-          <label class="opt"><input type="radio" name="entryError" value="Завал лука">Завал лука</label>
-          <label class="opt"><input type="radio" name="entryError" value="Опускание левой руки">Опускание левой руки</label>
-          <label class="opt"><input type="radio" name="entryError" value="Недотяг тетивы">Недотяг тетивы</label>
-          <label class="opt"><input type="radio" name="entryError" value="Передерживание прицела">Передерживание прицела</label>
-          <div id="errorHint" class="hint"></div>
-          <div id="autoErrorBox" class="autobox" style="display:none">
-            <span class="mini">1. Куда в основном уходили плохие стрелы?</span>
-            <div class="btnrow" id="dirRow">
-              <button type="button" class="chip" data-dir="up">Вверх</button>
-              <button type="button" class="chip" data-dir="down">Вниз</button>
-              <button type="button" class="chip" data-dir="left">Влево</button>
-              <button type="button" class="chip" data-dir="right">Вправо</button>
-            </div>
-            <span class="mini">2. Вы правша или левша?</span>
-            <div class="btnrow" id="handRow">
-              <button type="button" class="chip" data-hand="r">Правша</button>
-              <button type="button" class="chip" data-hand="l">Левша</button>
-            </div>
-            <div id="downFollow" style="display:none">
-              <span class="mini">Стреляющая рука после выстрела?</span>
-              <div class="btnrow" id="downRow">
-                <button type="button" class="chip" data-down="hand">Опускается сразу</button>
-                <button type="button" class="chip" data-down="anchor">Остаётся на месте до попадания</button>
-              </div>
-            </div>
-            <div id="autoResult" class="hint" style="display:none"></div>
-            <button type="button" id="autoClose" class="linkbtn">Закрыть</button>
-          </div>
-        </div>
-        <div id="entryOk" class="ok"></div>
-        <button class="btn" type="submit">Сохранить</button>
-      </form>
-    </section>
-
-    <section id="view-chart" class="view">
-      <div class="card wide">
-        <div class="cardhead">
-          <h2>Прогресс</h2>
-          <select id="chartDist" style="width:auto"></select>
-        </div>
-        <div id="chartBox"></div>
-        <p id="chartStat" class="mini"></p>
-      </div>
-    </section>
-
-    <section id="view-log" class="view">
-      <div class="card wide">
-        <div class="cardhead">
-          <h2>Журнал тренировок</h2>
-          <button id="shareBtn" class="btn ghost" type="button" style="padding:8px 14px;font-size:13px">Поделиться результатом</button>
-        </div>
-        <div id="shareMenu" class="sharemenu" style="display:none">
-          <button type="button" class="sharebtn" data-net="telegram">Telegram</button>
-          <button type="button" class="sharebtn" data-net="whatsapp">WhatsApp</button>
-          <button type="button" class="sharebtn" data-net="vk">ВКонтакте</button>
-          <button type="button" class="sharebtn" data-net="ok">Одноклассники</button>
-          <button type="button" class="sharebtn" data-net="max">MAX</button>
-          <button type="button" class="sharebtn" data-net="copy">Скопировать текст</button>
-          <span class="mini" style="flex-basis:100%">Telegram, WhatsApp и MAX — выбираете чат и жмёте «Отправить». ВКонтакте по своим правилам публикует запись на стене; чтобы отправить в чат ВК — скопируйте текст и вставьте в чат.</span>
-        </div>
-        <div class="tablewrap">
-          <table id="logTable">
-            <thead><tr><th>Дата</th><th>Дист.</th><th>Выстр.</th><th>Попад.</th><th>Очки</th><th>Ср. балл</th><th>Ошибка</th><th></th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <p id="logEmpty" class="mini">Пока пусто — запишите первую тренировку.</p>
-      </div>
-    </section>
-
-  </main>
-</div>
-
-<script>
+<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><button id="loginTopBtn" type="button" class="ad-toplink">Войти</button></header><main class="ad-main"><section class="ad-hero"><h1>🏹 Дневник лучника</h1><p class="ad-lead">Записывайте результаты тренировок и следите за ростом своих очков.</p><p class="ad-lead2">Дата · дистанция · очки — график прогресса сам покажет, как идут дела.</p><div class="ad-chips"><span class="ad-chip">📅 Дата тренировки</span><span class="ad-chip">🎯 Дистанция</span><span class="ad-chip">🏅 Очки серии</span><span class="ad-chip">📈 График прогресса</span></div><div class="ad-btnrow"><button id="startBtn" type="button" class="ad-btn">Начать</button></div></section><section id="authCard" class="ad-card"><div class="ad-cardhead"><h2 id="authTitle">Создайте свой дневник</h2></div><div class="ad-seg"><button id="segReg" type="button" class="cur">Регистрация</button><button id="segLogin" type="button">Вход</button></div><form id="authForm" novalidate="novalidate"><div id="fieldName" class="ad-field"><label for="authName">Имя</label><input id="authName" type="text" placeholder="Как к вам обращаться?" autocomplete="name"/></div><div class="ad-field"><label for="authEmail">Электронная почта</label><input id="authEmail" type="email" placeholder="you@example.ru" autocomplete="email"/></div><div class="ad-field"><label for="authPass">Пароль</label><input id="authPass" type="password" placeholder="Минимум 6 символов" autocomplete="new-password"/></div><div id="fieldPass2" class="ad-field"><label for="authPass2">Повторите пароль</label><input id="authPass2" type="password" placeholder="Ещё раз" autocomplete="new-password"/></div><div id="authErr" class="ad-err"></div><div class="ad-btnrow"><button id="authSubmit" type="submit" class="ad-btn">Создать дневник</button></div></form><p class="ad-hint">Данные дневника хранятся локально в вашем браузере и никуда не отправляются.</p></section></main><script>
 (function () {
-  'use strict';
-  var app = document.getElementById('archer-app');
-  var $ = function (s) { return app.querySelector(s); };
-  var LS_USERS = 'archerUsers';
-  var LS_SESSION = 'archerSession';
-  var dataKey = function (u) { return 'archerData:' + u; };
-  var state = { user: null };
-  var authMode = 'register';
-
-  var ERROR_HINTS = {
-    'Ошибок нет': 'Так держать! Записывайте тренировки регулярно — так проще заметить, когда техника начинает «плыть».',
-    'Сдёргивание на выпуске': 'Выпуск должен быть мягким: тетива сама сходит с пальцев, рука расслаблена. Упражнение: «пустой щелчок» — выпуск без мишени, 10–15 раз перед стрельбой.',
-    'Завал лука': 'Держите лук вертикально на всех этапах выстрела. Проверяйте себя по отражению в окне или зеркалу — наклон часто появляется только под усталостью.',
-    'Опускание левой руки': 'Сохраняйте рабочее положение руки до попадания стрелы: считайте «раз-два-три» после выпуска. Упражнение: задержка финиша 3 секунды на каждом выстреле.',
-    'Недотяг тетивы': 'Дотягивайте до полного анкера: кость под челюстью, тетива у носа. Помогает тренировка с экспандером перед зеркалом — 2–3 подхода в день.',
-    'Передерживание прицела': 'Не зависайте в прицеливании дольше 3–5 секунд — точность падает. Стреляйте в ритме «натяжение — прицел — выпуск»; если не выстрелили за 5 секунд, отпустите и начните заново.'
+  var app = document.getElementById("archer-app");
+  if (!app) return;
+  var t = {};
+  try { t = JSON.parse(localStorage.getItem("ad_theme") || "{}"); } catch (e) {}
+  if (t.mode === "dark") app.classList.add("dark");
+  if (t.accent) app.classList.add("acc-" + t.accent);
+  window.ADAPI = {
+    user: function () { try { return JSON.parse(localStorage.getItem("ad_user") || "null"); } catch (e) { return null; } },
+    setUser: function (u) { localStorage.setItem("ad_user", JSON.stringify(u)); },
+    users: function () { try { return JSON.parse(localStorage.getItem("ad_users") || "[]"); } catch (e) { return []; } },
+    saveUsers: function (a) { localStorage.setItem("ad_users", JSON.stringify(a)); },
+    entries: function () {
+      var u = this.user(); if (!u) return [];
+      try { return JSON.parse(localStorage.getItem("ad_entries_" + u.email) || "[]"); } catch (e) { return []; }
+    },
+    saveEntries: function (a) {
+      var u = this.user(); if (!u) return;
+      localStorage.setItem("ad_entries_" + u.email, JSON.stringify(a));
+    },
+    logout: function () { localStorage.removeItem("ad_user"); location.href = "index.html"; }
   };
-
-  function refreshErrorHint() {
-    var el = app.querySelector('input[name="entryError"]:checked');
-    $('#errorHint').textContent = el && ERROR_HINTS[el.value] ? ERROR_HINTS[el.value] : '';
-  }
-  app.querySelector('.radios').addEventListener('change', refreshErrorHint);
-
-  var autoState = { dir: '', hand: '', down: '' };
-
-  function autoApply() {
-    if (!autoState.dir || !autoState.hand) return;
-    if (autoState.dir === 'down' && !autoState.down) return;
-    var dir = autoState.dir;
-    if (autoState.hand === 'l') {
-      if (dir === 'left') dir = 'right';
-      else if (dir === 'right') dir = 'left';
-    }
-    var err = dir === 'up' ? 'Передерживание прицела'
-      : dir === 'left' ? 'Завал лука'
-      : dir === 'right' ? 'Сдёргивание на выпуске'
-      : (autoState.down === 'hand' ? 'Опускание левой руки' : 'Недотяг тетивы');
-    var input = app.querySelector('input[name="entryError"][value="' + err + '"]');
-    if (input) {
-      input.checked = true;
-      input.dispatchEvent(new Event('change', { bubbles: true }));
-    }
-    var resBox = $('#autoResult');
-    resBox.style.display = '';
-    resBox.textContent = 'Похоже, это «' + err + '» — вариант отмечен, подсказка по исправлению обновлена ниже. Не подходит? Выберите вручную.';
-  }
-
-  $('#autoErrorBtn').addEventListener('click', function () {
-    var box = $('#autoErrorBox');
-    var opening = box.style.display === 'none';
-    box.style.display = opening ? 'flex' : 'none';
-    if (opening) {
-      autoState = { dir: '', hand: '', down: '' };
-      app.querySelectorAll('.autobox .chip').forEach(function (c) { c.classList.remove('on'); });
-      $('#downFollow').style.display = 'none';
-      $('#autoResult').style.display = 'none';
-    }
-  });
-  $('#autoClose').addEventListener('click', function () { $('#autoErrorBox').style.display = 'none'; });
-
-  $('#autoErrorBox').addEventListener('click', function (e) {
-    var chip = e.target.closest('.chip');
-    if (!chip) return;
-    var row = chip.parentElement;
-    row.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
-    chip.classList.add('on');
-    if (chip.hasAttribute('data-dir')) {
-      autoState.dir = chip.getAttribute('data-dir');
-      autoState.down = '';
-      $('#downFollow').style.display = autoState.dir === 'down' ? '' : 'none';
-      app.querySelectorAll('#downRow .chip').forEach(function (c) { c.classList.remove('on'); });
-    } else if (chip.hasAttribute('data-hand')) {
-      autoState.hand = chip.getAttribute('data-hand');
-    } else if (chip.hasAttribute('data-down')) {
-      autoState.down = chip.getAttribute('data-down');
-    }
-    autoApply();
-  });
-
-  function getUsers() { try { return JSON.parse(localStorage.getItem(LS_USERS)) || {}; } catch (e) { return {}; } }
-  function getEntries() {
-    if (!state.user) return [];
-    try { return JSON.parse(localStorage.getItem(dataKey(state.user))) || []; } catch (e) { return []; }
-  }
-  function setEntries(a) { localStorage.setItem(dataKey(state.user), JSON.stringify(a)); }
-  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h.toString(36); }
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
-  function todayISO() { var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
-  function fmtShort(iso) { var p = iso.split('-'); return p[2] + '.' + p[1]; }
-  function fmtFull(iso) { var p = iso.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
-
-  function go(view) {
-    if (!state.user && view !== 'landing' && view !== 'auth') view = 'auth';
-    if (state.user && (view === 'landing' || view === 'auth')) view = 'entry';
-    var views = app.querySelectorAll('.view');
-    for (var i = 0; i < views.length; i++) views[i].classList.remove('active');
-    var el = $('#view-' + view);
-    if (el) el.classList.add('active');
-    var logged = !!state.user;
-    $('.nav').style.display = logged ? '' : 'none';
-    $('.userbox').style.display = logged ? '' : 'none';
-    var links = app.querySelectorAll('.nav a');
-    for (var j = 0; j < links.length; j++) links[j].classList.toggle('cur', links[j].getAttribute('data-go') === view);
-    if (view === 'entry') $('#entryDate').value = todayISO();
-    if (view === 'chart') renderChart();
-    if (view === 'log') renderLog();
-  }
-
-  function setAuthMode(m) {
-    authMode = m;
-    $('#authTitle').textContent = m === 'register' ? 'Регистрация' : 'Вход';
-    $('#authSubmit').textContent = m === 'register' ? 'Создать дневник' : 'Войти';
-    $('#pass2Wrap').style.display = m === 'register' ? '' : 'none';
-    $('#authSwitchText').textContent = m === 'register' ? 'Уже ведёте дневник?' : 'Впервые здесь?';
-    $('#authSwitch').textContent = m === 'register' ? 'Войти' : 'Создать дневник';
-    $('#authErr').textContent = '';
-  }
-
-  $('#authForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = $('#authName').value.trim();
-    var pass = $('#authPass').value;
-    var err = $('#authErr');
-    err.textContent = '';
-    if (authMode === 'register') {
-      if (pass !== $('#authPass2').value) { err.textContent = 'Пароли не совпадают.'; return; }
-      var users = getUsers();
-      if (users[name]) { err.textContent = 'Эта почта уже зарегистрирована — войдите.'; return; }
-      users[name] = { p: hash(pass) };
-      localStorage.setItem(LS_USERS, JSON.stringify(users));
-    } else {
-      var u = getUsers()[name];
-      if (!u || u.p !== hash(pass)) { err.textContent = 'Неверная почта или пароль.'; return; }
-    }
-    localStorage.setItem(LS_SESSION, name);
-    state.user = name;
-    $('#userName').textContent = name;
-    go('entry');
-  });
-
-  $('#authSwitch').addEventListener('click', function (e) {
-    e.preventDefault();
-    setAuthMode(authMode === 'register' ? 'login' : 'register');
-    $('#authPass2').value = '';
-  });
-
-  $('#logoutBtn').addEventListener('click', function () {
-    localStorage.removeItem(LS_SESSION);
-    state.user = null;
-    go('landing');
-  });
-
-  var RANK_STEPS = [
-    [18, { r3: 55, r2: 63, r1: 71, kms: 79 }],
-    [30, { r3: 53, r2: 61, r1: 69, kms: 78 }],
-    [50, { r3: 52, r2: 60, r1: 68, kms: 77 }],
-    [70, { r3: 50, r2: 58, r1: 67, kms: 76 }],
-    [90, { r3: 50, r2: 58, r1: 66, kms: 75 }]
-  ];
-
-  function updateDerived(e) {
-    if (e && e.target && e.target.id !== 'entryScore' && e.target.id !== 'entryShots' && e.target.id !== 'entryDist') return;
-    var score = parseFloat($('#entryScore').value);
-    var shots = parseInt($('#entryShots').value, 10);
-    var dist = parseFloat($('#entryDist').value);
-    $('#entryAvg').value = (isFinite(score) && isFinite(shots) && shots > 0)
-      ? Math.round(score / shots * 100) / 100
-      : '';
-    var pct = (isFinite(score) && isFinite(shots) && shots > 0 && score >= 0)
-      ? Math.round(score / (shots * 10) * 1000) / 10
-      : null;
-    $('#scoreOf').textContent = pct === null
-      ? ''
-      : 'Набрано очков: ' + Math.round(score) + ' из ' + shots * 10 + ' возможных (' + pct + '%)';
-    if (pct !== null && isFinite(dist) && dist > 0) {
-      var th = RANK_STEPS[0][1];
-      for (var i = 0; i < RANK_STEPS.length; i++) if (dist >= RANK_STEPS[i][0]) th = RANK_STEPS[i][1];
-      var rank = pct >= th.kms ? 'КМС'
-        : pct >= th.r1 ? '1-й спортивный разряд'
-        : pct >= th.r2 ? '2-й спортивный разряд'
-        : pct >= th.r3 ? '3-й спортивный разряд'
-        : '';
-      $('#rankInfo').textContent = rank
-        ? 'Дистанция ' + dist + ' м · ' + pct + '% — соответствует: ' + rank + ' (ориентировочно)'
-        : 'Дистанция ' + dist + ' м · ' + pct + '% — пока ниже 3-го разряда';
-    } else {
-      $('#rankInfo').textContent = '';
-    }
-  }
-  $('#entryForm').addEventListener('input', updateDerived);
-  $('#entryForm').addEventListener('change', updateDerived);
-
-  var series = [];
-  var targetSvg = $('#targetSvg');
-  var SVGNS = 'http://www.w3.org/2000/svg';
-  var arrowLayer = document.createElementNS(SVGNS, 'g');
-  targetSvg.appendChild(arrowLayer);
-
-  function seriesRefresh() {
-    var sum = 0, miss = 0;
-    series.forEach(function (v) { sum += v; if (!v) miss++; });
-    var endSize = parseInt($('#endSize').value, 10) || 3;
-    var ends = [], cur = 0;
-    series.forEach(function (v, i) {
-      cur += v;
-      if ((i + 1) % endSize === 0) { ends.push(cur); cur = 0; }
-    });
-    var inEnd = series.length ? ((series.length - 1) % endSize) + 1 : 0;
-    $('#seriesInfo').innerHTML = 'Стрел: ' + series.length + ' · Сумма: ' + sum +
-      (miss ? ' · Промахи: ' + miss : '') +
-      (ends.length ? '<br>Серии: ' + ends.join(' · ') : '') +
-      (series.length ? '<br>Текущая серия: ' + inEnd + '/' + endSize : '');
-    $('#entryShots').value = series.length || '';
-    $('#entryScore').value = series.length ? sum : '';
-    $('#entryHits').value = series.length ? (series.length - miss) : '';
-    ['entryShots', 'entryScore'].forEach(function (id) {
-      document.getElementById(id).dispatchEvent(new Event('input', { bubbles: true }));
-    });
-  }
-  $('#endSize').addEventListener('change', seriesRefresh);
-
-  targetSvg.addEventListener('click', function (e) {
-    var rect = targetSvg.getBoundingClientRect();
-    var x = (e.clientX - rect.left) / rect.width * 240;
-    var y = (e.clientY - rect.top) / rect.height * 240;
-    var d = Math.sqrt((x - 120) * (x - 120) + (y - 120) * (y - 120));
-    var val = d > 100 ? 0 : Math.max(1, 10 - Math.floor(d / 10));
-    series.push(val);
-    seriesRefresh();
-  });
-
-  $('#undoArrow').addEventListener('click', function () {
-    if (!series.length) return;
-    series.pop();
-    if (arrowLayer.lastChild) arrowLayer.removeChild(arrowLayer.lastChild);
-    seriesRefresh();
-  });
-  $('#resetSeries').addEventListener('click', function () {
-    series = [];
-    arrowLayer.innerHTML = '';
-    seriesRefresh();
-  });
-
-  $('#entryForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var date = $('#entryDate').value;
-    var distance = parseFloat($('#entryDist').value);
-    var shots = parseInt($('#entryShots').value, 10);
-    var hits = parseInt($('#entryHits').value, 10);
-    var score = Math.round(parseFloat($('#entryScore').value));
-    var errEl = app.querySelector('input[name="entryError"]:checked');
-    if (!date || !isFinite(distance) || distance < 0 || !isFinite(score) || score < 0) return;
-    var avg = (isFinite(shots) && shots > 0) ? Math.round(score / shots * 100) / 100 : null;
-    var arr = getEntries();
-    var id = arr.reduce(function (m, x) { return Math.max(m, x.id); }, 0) + 1;
-    arr.push({
-      id: id,
-      date: date,
-      distance: distance,
-      shots: isFinite(shots) ? shots : null,
-      hits: isFinite(hits) ? hits : null,
-      score: score,
-      avg: avg,
-      error: errEl ? errEl.value : ''
-    });
-    setEntries(arr);
-    ['entryShots', 'entryHits', 'entryScore', 'entryAvg'].forEach(function (f) { $('#' + f).value = ''; });
-    series = [];
-    arrowLayer.innerHTML = '';
-    seriesRefresh();
-    var firstOpt = app.querySelector('input[name="entryError"]');
-    if (firstOpt) firstOpt.checked = true;
-    refreshErrorHint();
-    $('#entryOk').textContent = 'Сохранено ✓';
-    setTimeout(function () { $('#entryOk').textContent = ''; }, 2200);
-  });
-
-  function buildChart(data) {
-    if (!data.length) return '<p class="mini" style="text-align:center;padding:30px 0">Записей пока нет — график появится после первой тренировки.</p>';
-    var W = 640, H = 300, L = 46, R = 16, T = 16, B = 36;
-    var iw = W - L - R, ih = H - T - B;
-    var maxScore = 0;
-    for (var i = 0; i < data.length; i++) maxScore = Math.max(maxScore, data[i].score);
-    var yMax = Math.max(50, Math.ceil(maxScore / 50) * 50);
-    var accColor = getComputedStyle(app).getPropertyValue('--acc').trim() || '#1f6f50';
-    var n = data.length;
-    function px(i) { return n === 1 ? L + iw / 2 : L + i * iw / (n - 1); }
-    function py(v) { return T + ih - v / yMax * ih; }
-    var s = '';
-    for (var g = 0; g <= 4; g++) {
-      var v = yMax * g / 4, y = py(v);
-      s += '<line x1="' + L + '" y1="' + y + '" x2="' + (W - R) + '" y2="' + y + '" stroke="#e5e3dd"/>';
-      s += '<text x="' + (L - 8) + '" y="' + (y + 4) + '" text-anchor="end" font-size="11" fill="#6b7570">' + Math.round(v) + '</text>';
-    }
-    if (n > 1) {
-      var pts = '';
-      for (var k = 0; k < n; k++) pts += (k ? ' ' : '') + px(k) + ',' + py(data[k].score);
-      s += '<polyline points="' + pts + '" fill="none" stroke="' + accColor + '" stroke-width="2.5" stroke-linejoin="round"/>';
-    }
-    var anyErr = false;
-    for (var m = 0; m < n; m++) {
-      var en = data[m];
-      var tip = fmtFull(en.date) + ' · ' + en.distance + ' м · ' + en.score + ' очк.';
-      if (en.error && en.error !== 'Ошибок нет') {
-        anyErr = true;
-        tip += ' · ' + en.error;
-        var cx = px(m), cy = py(en.score), rr = 6;
-        s += '<polygon points="' + cx + ',' + (cy - rr) + ' ' + (cx + rr) + ',' + cy + ' ' + cx + ',' + (cy + rr) + ' ' + (cx - rr) + ',' + cy + '" fill="#d98e32"><title>' + tip + '</title></polygon>';
-      } else {
-        s += '<circle cx="' + px(m) + '" cy="' + py(en.score) + '" r="4.5" fill="' + accColor + '"><title>' + tip + '</title></circle>';
-      }
-    }
-    var labCount = Math.min(n, 6);
-    for (var q = 0; q < labCount; q++) {
-      var idx = labCount === 1 ? 0 : Math.round(q * (n - 1) / (labCount - 1));
-      s += '<text x="' + px(idx) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="#6b7570">' + fmtShort(data[idx].date) + '</text>';
-    }
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;display:block" role="img" aria-label="График очков по тренировкам">' + s + '</svg>' +
-      (anyErr ? '<p class="mini" style="margin-top:8px">● без ошибок · <span style="color:#d98e32">◆</span> систематическая ошибка (наведите на точку, чтобы увидеть какую)</p>' : '');
-  }
-
-  function renderChart() {
-    var all = getEntries().slice().sort(function (a, b) { return a.date === b.date ? a.id - b.id : (a.date < b.date ? -1 : 1); });
-    var dists = [];
-    all.forEach(function (e) { if (dists.indexOf(e.distance) < 0) dists.push(e.distance); });
-    dists.sort(function (a, b) { return a - b; });
-    var sel = $('#chartDist');
-    var prev = sel.value;
-    var html = '';
-    ['all'].concat(dists).forEach(function (d) {
-      html += '<option value="' + d + '"' + (String(prev) === String(d) ? ' selected' : '') + '>' +
-        (d === 'all' ? 'Все дистанции' : d + ' м') + '</option>';
-    });
-    sel.innerHTML = html;
-    if (!sel.value) sel.value = 'all';
-    var cur = sel.value === 'all' ? null : parseInt(sel.value, 10);
-    var data = cur === null ? all : all.filter(function (e) { return e.distance === cur; });
-    $('#chartBox').innerHTML = buildChart(data);
-    if (data.length) {
-      var sum = 0;
-      data.forEach(function (e) { sum += e.score; });
-      var statText = 'Тренировок: ' + data.length + ' · Средний результат: ' + Math.round(sum / data.length) + ' очк.' +
-        (cur === null ? '' : ' · дистанция ' + cur + ' м');
-      var errCount = {};
-      data.forEach(function (e) {
-        if (e.error && e.error !== 'Ошибок нет') errCount[e.error] = (errCount[e.error] || 0) + 1;
-      });
-      var errKeys = Object.keys(errCount);
-      if (errKeys.length) {
-        errKeys.sort(function (a, b) { return errCount[b] - errCount[a]; });
-        statText += ' · Частая ошибка: ' + errKeys[0] + ' (' + errCount[errKeys[0]] + ')';
-      }
-      $('#chartStat').textContent = statText;
-    } else {
-      $('#chartStat').textContent = '';
-    }
-  }
-
-  $('#chartDist').addEventListener('change', renderChart);
-
-  function renderLog() {
-    var arr = getEntries().slice().sort(function (a, b) { return a.date === b.date ? b.id - a.id : (a.date < b.date ? 1 : -1); });
-    var tb = app.querySelector('#logTable tbody');
-    tb.innerHTML = '';
-    arr.forEach(function (en) {
-      var tr = document.createElement('tr');
-      tr.innerHTML = '<td>' + fmtFull(en.date) + '</td><td>' + en.distance + '</td>' +
-        '<td>' + (en.shots == null ? '—' : en.shots) + '</td>' +
-        '<td>' + (en.hits == null ? '—' : en.hits) + '</td>' +
-        '<td><b>' + en.score + '</b></td>' +
-        '<td>' + (en.avg == null ? '—' : en.avg) + '</td>' +
-        '<td>' + (en.error || '—') + '</td>' +
-        '<td style="text-align:right"><button class="del" type="button" data-id="' + en.id + '" title="Удалить запись">✕</button></td>';
-      tb.appendChild(tr);
-    });
-    $('#logTable').style.display = arr.length ? '' : 'none';
-    $('#logEmpty').style.display = arr.length ? 'none' : '';
-  }
-
-  app.querySelector('#logTable tbody').addEventListener('click', function (e) {
-    var b = e.target.closest('.del');
-    if (!b) return;
-    if (b.classList.contains('armed')) {
-      var id = parseInt(b.getAttribute('data-id'), 10);
-      setEntries(getEntries().filter(function (x) { return x.id !== id; }));
-      renderLog();
-    } else {
-      b.classList.add('armed');
-      b.textContent = 'Удалить?';
-      setTimeout(function () { b.classList.remove('armed'); b.textContent = '✕'; }, 2500);
-    }
-  });
-
-  app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-go],[data-auth]');
-    if (!t) return;
-    e.preventDefault();
-    if (t.hasAttribute('data-go')) go(t.getAttribute('data-go'));
-    else { setAuthMode(t.getAttribute('data-auth')); go('auth'); }
-  });
-
-  refreshErrorHint();
-
-  var PALETTE = ['#1f6f50', '#23857a', '#2f5d8e', '#52489c', '#7a45a0', '#8f3a4d', '#c0392b', '#c25e3f', '#b0741f', '#5d8a2a', '#c94f7c', '#3787c2', '#7c5a3a', '#3f4a54', '#a88a2e', '#9c8a63'];
-
-  function hexToRgb(h) {
-    return { r: parseInt(h.slice(1, 3), 16), g: parseInt(h.slice(3, 5), 16), b: parseInt(h.slice(5, 7), 16) };
-  }
-  function mixToHex(hex, t) {
-    var c = hexToRgb(hex);
-    var ch = function (v) {
-      var m = Math.round(v + (255 - v) * t);
-      var s = m.toString(16);
-      return s.length < 2 ? '0' + s : s;
-    };
-    return '#' + ch(c.r) + ch(c.g) + ch(c.b);
-  }
-
-  var SPECIAL_THEMES = {
-    white: { acc: '#1f6f50', bg: '#faf9f7', line: '#e5e3dd', swatch: '#ffffff', title: 'Белый — как в начале' },
-    lemon: { acc: '#8a6d1f', bg: '#fdf6d5', line: '#eadfa4', swatch: '#fdf3b3', title: 'Светло-жёлтый (лимонный)' }
-  };
-
-  function applyTheme(theme) {
-    var sp = SPECIAL_THEMES[theme];
-    var accHex = sp ? sp.acc : theme;
-    var rgb = hexToRgb(accHex);
-    var bg = sp ? sp.bg : mixToHex(accHex, 0.82);
-    var bgc = hexToRgb(bg);
-    app.style.setProperty('--acc', accHex);
-    app.style.setProperty('--acc-rgb', rgb.r + ',' + rgb.g + ',' + rgb.b);
-    app.style.setProperty('--bg', bg);
-    app.style.setProperty('--bg-rgb', bgc.r + ',' + bgc.g + ',' + bgc.b);
-    app.style.setProperty('--line', sp ? sp.line : mixToHex(accHex, 0.68));
-    localStorage.setItem('archerTheme', theme);
-    app.querySelectorAll('.swatch').forEach(function (s) {
-      s.classList.toggle('cur', s.getAttribute('data-c') === theme);
-    });
-  }
-
-  (function initTheme() {
-    var wrap = $('#swatches');
-    var mkSwatch = function (val, bg, title) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'swatch';
-      b.setAttribute('data-c', val);
-      b.setAttribute('title', title);
-      b.style.background = bg;
-      if (val === 'white') b.style.borderColor = '#c9c6c0';
-      b.addEventListener('click', function () {
-        applyTheme(val);
-        $('#themeMenu').style.display = 'none';
-        if (document.querySelector('#view-chart.active')) renderChart();
-      });
-      wrap.appendChild(b);
-    };
-    Object.keys(SPECIAL_THEMES).forEach(function (key) {
-      var t = SPECIAL_THEMES[key];
-      mkSwatch(key, t.swatch, t.title);
-      var el = wrap.lastChild;
-      if (key !== 'white') el.style.borderColor = '#d8cf8e';
-    });
-    PALETTE.forEach(function (hex) { mkSwatch(hex, hex, hex); });
-    var saved = localStorage.getItem('archerTheme');
-    var valid = !!SPECIAL_THEMES[saved] || PALETTE.indexOf(saved) >= 0;
-    applyTheme(valid ? saved : 'white');
-  })();
-
-  $('#themeBtn').addEventListener('click', function (e) {
-    e.stopPropagation();
-    var m = $('#themeMenu');
-    m.style.display = m.style.display === 'none' ? 'flex' : 'none';
-  });
-  document.addEventListener('click', function (e) {
-    var m = $('#themeMenu');
-    if (m.style.display !== 'none' && !e.target.closest('#themeMenu')) m.style.display = 'none';
-  });
-
-  function copyText(t) {
-    var legacy = function () {
-      var ta = document.createElement('textarea');
-      ta.value = t;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (err) {}
-      ta.remove();
-      return ok ? Promise.resolve() : Promise.reject(new Error('copy failed'));
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(t).catch(legacy);
-    }
-    return legacy();
-  }
-
-  var SITE_URL = 'https://lazarevapolinaartemovna.github.io/archersdiary/';
-
-  function buildShareText() {
-    var arr = getEntries().slice().sort(function (a, b) { return a.date === b.date ? a.id - b.id : (a.date < b.date ? -1 : 1); });
-    if (!arr.length) return null;
-    var last = arr[arr.length - 1];
-    var sum = 0;
-    arr.forEach(function (e) { sum += e.score; });
-    return '🏹 Мой дневник лучника\n' +
-      'Последняя тренировка: ' + fmtFull(last.date) + ', ' + last.distance + ' м — ' + last.score + ' очк.' +
-      (last.avg != null ? ' (средний балл ' + last.avg + ')' : '') + (last.error && last.error !== 'Ошибок нет' ? ', ошибка: ' + last.error : '') + '\n' +
-      'Всего тренировок: ' + arr.length + ' · средний результат: ' + Math.round(sum / arr.length) + ' очк.';
-  }
-
-  $('#shareBtn').addEventListener('click', function () {
-    var btn = $('#shareBtn');
-    if (!buildShareText()) {
-      btn.textContent = 'Пока нечего делиться';
-      setTimeout(function () { btn.textContent = 'Поделиться результатом'; }, 2000);
-      return;
-    }
-    var m = $('#shareMenu');
-    m.style.display = m.style.display === 'none' ? 'flex' : 'none';
-  });
-
-  function openShare(url) {
-    var w = null;
-    try { w = window.open(url, '_blank'); } catch (err) {}
-    if (!w) location.href = url;
-  }
-
-  $('#shareMenu').addEventListener('click', function (e) {
-    var b = e.target.closest('.sharebtn');
-    if (!b) return;
-    var text = buildShareText();
-    if (!text) return;
-    var url = SITE_URL;
-    var enc = encodeURIComponent;
-    var net = b.getAttribute('data-net');
-    var full = text + '\n' + url;
-    var feedback = function (msg) {
-      var old = b.textContent;
-      b.textContent = msg;
-      setTimeout(function () { b.textContent = old; }, 2200);
-    };
-    $('#shareMenu').style.display = 'none';
-    if (net === 'telegram') openShare('https://t.me/share/url?url=' + enc(url) + '&text=' + enc(text));
-    else if (net === 'whatsapp') openShare('https://api.whatsapp.com/send?text=' + enc(full));
-    else if (net === 'vk') openShare('https://vk.com/share.php?url=' + enc(url) + '&title=' + enc(text));
-    else if (net === 'ok') openShare('https://connect.ok.ru/offer?url=' + enc(url) + '&title=' + enc(text));
-    else if (net === 'max') {
-      var isMobile = /Android|iPhone|iPad|Mobi/i.test(navigator.userAgent);
-      if (isMobile) {
-        openShare('https://max.ru/:share?text=' + enc(full));
-      } else {
-        openShare('https://web.max.ru/');
-        copyText(full).then(function () { feedback('✓ Текст скопирован — вставьте в чат MAX'); }, function () { feedback('Не удалось скопировать'); });
-      }
-    }
-    else if (net === 'more') {
-      if (navigator.share) {
-        navigator.share({ text: full }).then(function () {}, function () {
-          copyText(full).then(function () { feedback('✓ Скопировано'); }, function () { feedback('Не удалось скопировать'); });
-        });
-      } else {
-        copyText(full).then(function () { feedback('✓ Скопировано'); }, function () { feedback('Не удалось скопировать'); });
-      }
-    }
-    else if (net === 'copy') copyText(full).then(function () { feedback('✓ Скопировано'); }, function () { feedback('Не удалось'); });
-  });
-
-  var saved = localStorage.getItem(LS_SESSION);
-  if (saved && getUsers()[saved]) {
-    state.user = saved;
-    $('#userName').textContent = saved;
-    go('entry');
-  } else {
-    go('landing');
-  }
+  var u = window.ADAPI.user();
+  var ub = document.getElementById("userEmail");
+  if (ub && u) ub.textContent = u.name ? u.name + " · " + u.email : u.email;
+  var out = document.getElementById("logoutBtn");
+  if (out) out.addEventListener("click", window.ADAPI.logout);
 })();
-</script>
-<!-- ===== ДНЕВНИК ЛУЧНИКА · КОНЕЦ ===== -->
+</script><script>
+(function () {
+  var form = document.getElementById("authForm");
+  var err = document.getElementById("authErr");
+  var title = document.getElementById("authTitle");
+  var submit = document.getElementById("authSubmit");
+  var fieldName = document.getElementById("fieldName");
+  var fieldPass2 = document.getElementById("fieldPass2");
+  var segReg = document.getElementById("segReg");
+  var segLogin = document.getElementById("segLogin");
+  var mode = "reg";
+  function setMode(m) {
+    mode = m;
+    var reg = m === "reg";
+    segReg.classList.toggle("cur", reg);
+    segLogin.classList.toggle("cur", !reg);
+    fieldName.style.display = reg ? "" : "none";
+    fieldPass2.style.display = reg ? "" : "none";
+    title.textContent = reg ? "Создайте свой дневник" : "С возвращением!";
+    submit.textContent = reg ? "Создать дневник" : "Войти";
+    err.classList.remove("show");
+  }
+  segReg.addEventListener("click", function () { setMode("reg"); });
+  segLogin.addEventListener("click", function () { setMode("login"); });
+  function fail(msg) { err.textContent = msg; err.classList.add("show"); }
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    err.classList.remove("show");
+    var api = window.ADAPI;
+    var name = document.getElementById("authName").value.trim();
+    var email = document.getElementById("authEmail").value.trim().toLowerCase();
+    var pass = document.getElementById("authPass").value;
+    var pass2 = document.getElementById("authPass2").value;
+    if (mode === "reg") {
+      if (name.length < 2) return fail("Укажите имя (минимум 2 символа).");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail("Похоже, в адресе почты опечатка.");
+      if (pass.length < 6) return fail("Пароль должен быть не короче 6 символов.");
+      if (pass !== pass2) return fail("Пароли не совпадают.");
+      var users = api.users();
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].email === email) return fail("Такая почта уже зарегистрирована. Переключитесь на «Вход».");
+      }
+      users.push({ name: name, email: email, pass: pass, created: new Date().toISOString() });
+      api.saveUsers(users);
+      api.setUser({ name: name, email: email });
+      location.href = "record.html";
+    } else {
+      if (!email || !pass) return fail("Введите почту и пароль.");
+      var list = api.users();
+      for (var j = 0; j < list.length; j++) {
+        if (list[j].email === email && list[j].pass === pass) {
+          api.setUser({ name: list[j].name, email: email });
+          location.href = "record.html";
+          return;
+        }
+      }
+      fail("Не нашли такой дневник. Проверьте почту и пароль.");
+    }
+  });
+  var toForm = function () {
+    document.getElementById("authCard").scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(function () { document.getElementById("authName").focus(); }, 350);
+  };
+  document.getElementById("startBtn").addEventListener("click", toForm);
+  document.getElementById("loginTopBtn").addEventListener("click", toForm);
+})();
+</script></div>
 </body>
 </html>

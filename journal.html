@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дневник лучника — журнал тренировок</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%B9%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; } body {margin: 0;}.ad-app{--ink:#1d2420;--mut:#6b7570;--line:#d9d6cd;--acc:#1f6f50;--acc-rgb:31,111,80;--bg:#f2f1ee;--card:#fff;--red:#b3402f;font-family:Montserrat, Tahoma, Verdana, sans-serif;color:var(--ink);background-color:var(--bg);min-height:100vh;}.ad-app *{box-sizing:border-box;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;}.ad-app.acc-blue{--acc:#1a5fb4;--acc-rgb:26,95,180;}.ad-app.acc-wine{--acc:#8a3342;--acc-rgb:138,51,66;}.ad-app.acc-amber{--acc:#a2651c;--acc-rgb:162,101,28;}.ad-app.acc-plum{--acc:#6b2f8f;--acc-rgb:107,47,143;}.ad-app.dark{--ink:#eae8e0;--mut:#96a096;--line:#39413a;--bg:#141814;--card:#1e241e;}.ad-top{display:flex;align-items:center;row-gap:14px;column-gap:14px;flex-wrap:wrap;padding-top:14px;padding-right:24px;padding-bottom:14px;padding-left:24px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);background-color:var(--card);}.ad-brand{font-weight:700;font-size:16px;margin-right:auto;}.ad-nav{display:flex;row-gap:4px;column-gap:4px;flex-wrap:wrap;}.ad-nav a{color:rgb(26, 79, 156);text-decoration-line:none;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;font-size:14px;padding-top:5px;padding-right:8px;padding-bottom:5px;padding-left:8px;border-top-left-radius:3px;border-top-right-radius:3px;border-bottom-right-radius:3px;border-bottom-left-radius:3px;}.ad-nav a:hover{color:var(--ink);}.ad-app.dark .ad-nav a{color:rgb(127, 178, 224);}.ad-nav a.cur{color:rgb(124, 45, 45);background-color:rgb(244, 242, 236);font-weight:700;text-decoration-line:underline;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;}.ad-app.dark .ad-nav a.cur{color:rgb(230, 176, 164);background-color:rgb(38, 48, 42);}.ad-userbox{display:flex;align-items:center;row-gap:8px;column-gap:8px;font-size:14px;color:var(--mut);}.ad-linkbtn{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--mut);cursor:pointer;font-size:14px;padding-top:6px;padding-right:10px;padding-bottom:6px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;font-family:inherit;}.ad-linkbtn:hover{color:var(--red);}.ad-main{max-width:680px;margin-top:0px;margin-right:auto;margin-bottom:0px;margin-left:auto;padding-top:34px;padding-right:20px;padding-bottom:64px;padding-left:20px;}.ad-card{background-color:var(--card);border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:14px;border-top-right-radius:14px;border-bottom-right-radius:14px;border-bottom-left-radius:14px;padding-top:18px;padding-right:18px;padding-bottom:18px;padding-left:18px;margin-bottom:16px;}.ad-cardhead{display:flex;align-items:center;justify-content:space-between;row-gap:10px;column-gap:10px;font-weight:700;margin-bottom:12px;}.ad-row{display:flex;row-gap:10px;column-gap:10px;flex-wrap:wrap;align-items:center;}.ad-hint{font-size:13px;color:var(--mut);margin-top:10px;}.ad-field label{display:block;font-size:13px;color:var(--mut);margin-bottom:6px;font-weight:600;}.ad-field input, .ad-field select, .ad-field textarea{width:100%;padding-top:11px;padding-right:12px;padding-bottom:11px;padding-left:12px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-family:inherit;font-size:inherit;background-color:var(--bg);color:var(--ink);}.ad-field input:focus, .ad-field select:focus{outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.4);border-top-color:var(--acc);}.ad-seg button{flex-grow:1;flex-shrink:1;flex-basis:0%;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;font-family:inherit;font-weight:600;font-size:14px;padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;border-top-left-radius:8px;border-top-right-radius:8px;border-bottom-right-radius:8px;border-bottom-left-radius:8px;color:var(--mut);cursor:pointer;}.ad-seg button.cur{background-color:var(--acc);color:rgb(255, 255, 255);}.ad-app.dark .ad-err{color:rgb(232, 167, 155);}.ad-ok{display:none;background-color:rgba(31, 111, 80, 0.12);border-top-width:1px;border-top-style:solid;border-top-color:rgba(31, 111, 80, 0.45);border-right-width:1px;border-right-style:solid;border-right-color:rgba(31, 111, 80, 0.45);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgba(31, 111, 80, 0.45);border-left-width:1px;border-left-style:solid;border-left-color:rgba(31, 111, 80, 0.45);color:rgb(31, 111, 80);padding-top:10px;padding-right:12px;padding-bottom:10px;padding-left:12px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px;font-size:14px;margin-bottom:12px;}.ad-app.dark .ad-ok{color:rgb(143, 211, 180);}.ad-ok.show{display:block;}.ad-hero h1{font-size:34px;font-weight:800;margin-bottom:12px;max-width:72%;}.ad-hero .ad-lead{font-size:16px;line-height:1.5;max-width:56%;opacity:0.94;}.ad-hero .ad-lead2{font-size:13px;margin-top:8px;max-width:56%;opacity:0.75;}.ad-tablewrap{overflow-x:auto;}.ad-table{width:100%;border-collapse:collapse;font-size:14px;}.ad-table th, .ad-table td{border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);padding-top:9px;padding-right:10px;padding-bottom:9px;padding-left:10px;text-align:left;white-space-collapse:collapse;text-wrap-mode:nowrap;}.ad-table th{font-size:12px;text-transform:uppercase;letter-spacing:0.04em;color:var(--mut);}.ad-table td.num, .ad-table th.num{text-align:right;}.ad-table tr.total td{font-weight:700;border-top-width:2px;border-top-style:solid;border-top-color:var(--line);}.ad-table .del{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:none;border-right-style:none;border-bottom-style:none;border-left-style:none;background-color:transparent;color:var(--red);cursor:pointer;font-weight:700;padding-top:4px;padding-right:8px;padding-bottom:4px;padding-left:8px;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;font-size:14px;font-family:inherit;}.ad-empty{text-align:center;color:var(--mut);padding-top:26px;padding-right:10px;padding-bottom:26px;padding-left:10px;font-size:14px;}.ad-radios label{display:inline-flex;align-items:center;row-gap:6px;column-gap:6px;border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);background-color:var(--bg);border-top-left-radius:999px;border-top-right-radius:999px;border-bottom-right-radius:999px;border-bottom-left-radius:999px;padding-top:7px;padding-right:14px;padding-bottom:7px;padding-left:14px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);}.ad-radios input{accent-color:var(--acc);}.ad-targetbox svg{display:block;width:100%;height:100%;}.ad-stats b{color:var(--ink);font-size:20px;font-weight:800;}.ad-statline{display:flex;row-gap:18px;column-gap:18px;flex-wrap:wrap;font-size:14px;color:var(--mut);margin-top:12px;}.ad-statline b{color:var(--ink);font-size:17px;font-weight:800;}.ad-legend i{display:inline-block;width:10px;height:10px;border-top-left-radius:50%;border-top-right-radius:50%;border-bottom-right-radius:50%;border-bottom-left-radius:50%;background-color:var(--acc);margin-right:6px;}.ad-themeopt.cur{border-top-color:var(--acc);border-right-color:var(--acc);border-bottom-color:var(--acc);border-left-color:var(--acc);outline-width:2px;outline-style:solid;outline-color:rgba(var(--acc-rgb),.35);}.ad-swatch.cur{border-top-color:var(--ink);border-right-color:var(--ink);border-bottom-color:var(--ink);border-left-color:var(--ink);outline-width:2px;outline-style:solid;outline-color:var(--acc);outline-offset:1px;}.ad-sharebtn{border-top-width:1px;border-top-style:solid;border-top-color:var(--line);border-right-width:1px;border-right-style:solid;border-right-color:var(--line);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:var(--line);border-left-width:1px;border-left-style:solid;border-left-color:var(--line);background-color:var(--bg);color:var(--ink);border-top-left-radius:999px;border-top-right-radius:999px;border-bottom-right-radius:999px;border-bottom-left-radius:999px;padding-top:8px;padding-right:14px;padding-bottom:8px;padding-left:14px;font-size:13px;font-family:inherit;cursor:pointer;font-weight:600;}.ad-app.dark .ad-error-tag{color:rgb(232, 167, 155);}@media (max-width: 640px){.ad-hero h1{font-size:26px;max-width:100%;}.ad-hero .ad-lead, .ad-hero .ad-lead2{max-width:100%;}}
+</style>
+</head>
+<body>
+<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html">Записать</a><a href="chart.html">График</a><a href="journal.html" class="cur">Журнал</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main"><div id="shareOk" class="ad-ok"></div><div id="journalStat" class="ad-statline"></div><section class="ad-card"><div class="ad-cardhead"><h2>🗒 Журнал тренировок</h2></div><div class="ad-tablewrap"><table id="journalTable" class="ad-table"><thead><tr><th>Дата</th><th class="num">Дист.</th><th class="num">Выстр.</th><th class="num">Попад.</th><th class="num">Очки</th><th class="num">Ср. балл</th><th>Ошибка</th><th></th></tr></thead><tbody id="journalBody"></tbody></table></div><div id="journalEmpty" class="ad-empty">Пока пусто — запишите первую тренировку на странице «Записать», и она появится здесь.</div><p class="ad-hint">Кнопка ✕ удаляет тренировку из журнала, графика и статистики.</p></section><section class="ad-card"><div class="ad-cardhead"><h2>📤 Поделиться результатом</h2></div><div class="ad-row"><button id="sharetg" type="button" class="ad-sharebtn">Telegram</button><button id="sharewa" type="button" class="ad-sharebtn">WhatsApp</button><button id="sharevk" type="button" class="ad-sharebtn">ВКонтакте</button><button id="shareCopy" type="button" class="ad-sharebtn">📋 Скопировать текст</button></div><p class="ad-hint">Мессенджеры откроют чат с готовым текстом результата.</p></section></main><script>
+(function () {
+  var app = document.getElementById("archer-app");
+  if (!app) return;
+  var t = {};
+  try { t = JSON.parse(localStorage.getItem("ad_theme") || "{}"); } catch (e) {}
+  if (t.mode === "dark") app.classList.add("dark");
+  if (t.accent) app.classList.add("acc-" + t.accent);
+  window.ADAPI = {
+    user: function () { try { return JSON.parse(localStorage.getItem("ad_user") || "null"); } catch (e) { return null; } },
+    setUser: function (u) { localStorage.setItem("ad_user", JSON.stringify(u)); },
+    users: function () { try { return JSON.parse(localStorage.getItem("ad_users") || "[]"); } catch (e) { return []; } },
+    saveUsers: function (a) { localStorage.setItem("ad_users", JSON.stringify(a)); },
+    entries: function () {
+      var u = this.user(); if (!u) return [];
+      try { return JSON.parse(localStorage.getItem("ad_entries_" + u.email) || "[]"); } catch (e) { return []; }
+    },
+    saveEntries: function (a) {
+      var u = this.user(); if (!u) return;
+      localStorage.setItem("ad_entries_" + u.email, JSON.stringify(a));
+    },
+    logout: function () { localStorage.removeItem("ad_user"); location.href = "index.html"; }
+  };
+  var u = window.ADAPI.user();
+  var ub = document.getElementById("userEmail");
+  if (ub && u) ub.textContent = u.name ? u.name + " · " + u.email : u.email;
+  var out = document.getElementById("logoutBtn");
+  if (out) out.addEventListener("click", window.ADAPI.logout);
+})();
+</script><script>
+if (!localStorage.getItem("ad_user")) location.replace("index.html");
+</script><script>
+(function () {
+  var api = window.ADAPI;
+  var body = document.getElementById("journalBody");
+  var empty = document.getElementById("journalEmpty");
+  var stat = document.getElementById("journalStat");
+  var ok = document.getElementById("shareOk");
+
+  var ERR = {
+    none: "—",
+    jerk: "Сдёргивание",
+    cant: "Завал лука",
+    hand: "Опуск. руки",
+    shortdraw: "Недотяг",
+    aim: "Передерж."
+  };
+
+  function fmtDate(d) {
+    return d.slice(8, 10) + "." + d.slice(5, 7) + "." + d.slice(0, 4);
+  }
+
+  function render() {
+    var list = api.entries().slice().sort(function (a, b) {
+      return (b.date + b.id).localeCompare(a.date + a.id);
+    });
+    body.innerHTML = "";
+    if (!list.length) {
+      empty.style.display = "";
+      stat.textContent = "";
+      return;
+    }
+    empty.style.display = "none";
+    var shots = 0, sum = 0, hits = 0;
+    list.forEach(function (e) {
+      shots += e.shots; sum += e.sum; hits += e.hits;
+      var tr = document.createElement("tr");
+      var errHtml = e.error && e.error !== "none"
+        ? '<span class="ad-error-tag">' + (ERR[e.error] || "—") + "</span>"
+        : "<span>" + (ERR[e.error] || "—") + "</span>";
+      tr.innerHTML =
+        "<td>" + fmtDate(e.date) + "</td>" +
+        '<td class="num">' + e.dist + "</td>" +
+        '<td class="num">' + e.shots + "</td>" +
+        '<td class="num">' + e.hits + "</td>" +
+        '<td class="num"><b>' + e.sum + "</b></td>" +
+        '<td class="num">' + e.avg.toFixed(1) + "</td>" +
+        "<td>" + errHtml + "</td>" +
+        '<td><button class="del" data-id="' + e.id + '" title="Удалить">✕</button></td>';
+      body.appendChild(tr);
+    });
+    var trT = document.createElement("tr");
+    trT.className = "total";
+    trT.innerHTML =
+      "<td>Итого</td>" +
+      "<td></td>" +
+      '<td class="num">' + shots + "</td>" +
+      '<td class="num">' + hits + "</td>" +
+      '<td class="num">' + sum + "</td>" +
+      '<td class="num">' + (shots ? (sum / shots).toFixed(1) : "0") + "</td>" +
+      "<td></td><td></td>";
+    body.appendChild(trT);
+    stat.innerHTML =
+      '<span>Тренировок: <b>' + list.length + "</b></span>" +
+      '<span>Стрел выпущено: <b>' + shots + "</b></span>" +
+      '<span>Очки за всё время: <b>' + sum + "</b></span>";
+  }
+
+  body.addEventListener("click", function (ev) {
+    var btn = ev.target.closest("button.del");
+    if (!btn) return;
+    var id = parseInt(btn.getAttribute("data-id"), 10);
+    api.saveEntries(api.entries().filter(function (e) { return e.id !== id; }));
+    render();
+  });
+
+  // ----- поделиться -----
+  function shareText() {
+    var list = api.entries();
+    if (!list.length) return "Мой дневник лучника пока пуст 🏹";
+    var last = list[list.length - 1];
+    var best = 0;
+    list.forEach(function (e) { if (e.sum > best) best = e.sum; });
+    return "🏹 Дневник лучника\n" +
+      "Тренировок: " + list.length +
+      " · Лучший результат: " + best + " оч.\n" +
+      "Последняя: " + fmtDate(last.date) + " — " + last.dist + " м — " + last.sum + " оч. (ср. " + last.avg.toFixed(1) + ")";
+  }
+
+  function flash(msg) {
+    ok.textContent = msg;
+    ok.classList.add("show");
+    setTimeout(function () { ok.classList.remove("show"); }, 2500);
+  }
+
+  document.getElementById("shareCopy").addEventListener("click", function () {
+    var txt = shareText();
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = txt;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); flash("Текст скопирован"); }
+      catch (e) { flash("Не удалось скопировать"); }
+      ta.remove();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { flash("Текст скопирован"); }, fallback);
+    } else { fallback(); }
+  });
+
+  var LINKS = {
+    tg: "https://t.me/share/url?url=&text=",
+    wa: "https://wa.me/?text=",
+    vk: "https://vk.com/share.php?url=&title="
+  };
+  ["tg", "wa", "vk"].forEach(function (key) {
+    document.getElementById("share" + key).addEventListener("click", function () {
+      window.open(LINKS[key] + encodeURIComponent(shareText()), "_blank");
+    });
+  });
+
+  render();
+})();
+</script></div>
+</body>
+</html>
