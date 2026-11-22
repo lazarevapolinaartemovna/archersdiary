@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html">Записать</a><a href="chart.html" class="cur">График</a><a href="journal.html">Журнал</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main ad-chartcard"><section class="ad-card"><div class="ad-cardhead"><h2>📈 Прогресс</h2><div id="distFilterWrap" class="ad-field"><select id="chartDist"><option value="all">Все дистанции</option></select></div></div><div><canvas id="chartCanvas" class="ad-chart"></canvas></div><div class="ad-legend"><span><i></i>Очки за тренировку (сумма серий)</span></div><div id="chartStat" class="ad-statline"></div><div id="chartEmpty" class="ad-empty">Пока нет тренировок — запишите первую на странице «Записать», и график оживёт.</div></section><section class="ad-card"><div class="ad-cardhead"><h2>💡 Как читать график</h2></div><p class="ad-mini">Каждая точка — отдельная тренировка, точки идут в хронологическом порядке. Если в один день тренировок несколько, они идут подряд с общей подписью даты.</p><p class="ad-mini">Фильтр по дистанции помогает сравнивать результаты на одинаковых условиях: рост линии — прогресс.</p></section></main><script>
+<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html">Записать</a><a href="chart.html" class="cur">График</a><a href="journal.html">Журнал</a><a href="theme.html">Тема</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main ad-chartcard"><section class="ad-card"><div class="ad-cardhead"><h2>📈 Прогресс</h2><div id="distFilterWrap" class="ad-field"><select id="chartDist"><option value="all">Все дистанции</option></select></div></div><div><canvas id="chartCanvas" class="ad-chart"></canvas></div><div class="ad-legend"><span><i></i>Очки за тренировку (сумма серий)</span></div><div id="chartStat" class="ad-statline"></div><div id="chartEmpty" class="ad-empty">Пока нет тренировок — запишите первую на странице «Записать», и график оживёт.</div></section><section class="ad-card"><div class="ad-cardhead"><h2>💡 Как читать график</h2></div><p class="ad-mini">Каждая точка — отдельная тренировка, точки идут в хронологическом порядке. Если в один день тренировок несколько, они идут подряд с общей подписью даты.</p><p class="ad-mini">Фильтр по дистанции помогает сравнивать результаты на одинаковых условиях: рост линии — прогресс.</p></section></main><script>
 (function () {
   var app = document.getElementById("archer-app");
   if (!app) return;
@@ -122,7 +122,8 @@ if (!localStorage.getItem("ad_user")) location.replace("index.html");
       canvas.style.display = "none";
       document.querySelector(".ad-legend").style.display = "none";
       statLine.textContent = "";
-      emptyBox.style.display = "";
+      // у #chartEmpty есть CSS-правило display:none — сброс инлайна ("") его не перебьёт
+      emptyBox.style.display = "block";
       return;
     }
     canvas.style.display = "block";

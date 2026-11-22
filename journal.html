@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html">Записать</a><a href="chart.html">График</a><a href="journal.html" class="cur">Журнал</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main"><div id="shareOk" class="ad-ok"></div><div id="journalStat" class="ad-statline"></div><section class="ad-card"><div class="ad-cardhead"><h2>🗒 Журнал тренировок</h2></div><div class="ad-tablewrap"><table id="journalTable" class="ad-table"><thead><tr><th>Дата</th><th class="num">Дист.</th><th class="num">Выстр.</th><th class="num">Попад.</th><th class="num">Очки</th><th class="num">Ср. балл</th><th>Ошибка</th><th></th></tr></thead><tbody id="journalBody"></tbody></table></div><div id="journalEmpty" class="ad-empty">Пока пусто — запишите первую тренировку на странице «Записать», и она появится здесь.</div><p class="ad-hint">Кнопка ✕ удаляет тренировку из журнала, графика и статистики.</p></section><section class="ad-card"><div class="ad-cardhead"><h2>📤 Поделиться результатом</h2></div><div class="ad-row"><button id="sharetg" type="button" class="ad-sharebtn">Telegram</button><button id="sharewa" type="button" class="ad-sharebtn">WhatsApp</button><button id="sharevk" type="button" class="ad-sharebtn">ВКонтакте</button><button id="shareCopy" type="button" class="ad-sharebtn">📋 Скопировать текст</button></div><p class="ad-hint">Мессенджеры откроют чат с готовым текстом результата.</p></section></main><script>
+<div id="archer-app" class="ad-app"><header class="ad-top"><div class="ad-brand">🏹 Дневник лучника</div><nav class="ad-nav"><a href="record.html">Записать</a><a href="chart.html">График</a><a href="journal.html" class="cur">Журнал</a><a href="theme.html">Тема</a></nav><div class="ad-userbox"><span id="userEmail"></span><button id="logoutBtn" type="button" class="ad-linkbtn">Выйти</button></div></header><main class="ad-main"><div id="shareOk" class="ad-ok"></div><div id="journalStat" class="ad-statline"></div><section class="ad-card"><div class="ad-cardhead"><h2>🗒 Журнал тренировок</h2></div><div class="ad-tablewrap"><table id="journalTable" class="ad-table"><thead><tr><th>Дата</th><th class="num">Дист.</th><th class="num">Выстр.</th><th class="num">Попад.</th><th class="num">Очки</th><th class="num">Ср. балл</th><th>Ошибка</th><th></th></tr></thead><tbody id="journalBody"></tbody></table></div><div id="journalEmpty" class="ad-empty">Пока пусто — запишите первую тренировку на странице «Записать», и она появится здесь.</div><p class="ad-hint">Кнопка ✕ удаляет тренировку из журнала, графика и статистики.</p></section><section class="ad-card"><div class="ad-cardhead"><h2>📤 Поделиться результатом</h2></div><div class="ad-row"><button id="sharetg" type="button" class="ad-sharebtn">Telegram</button><button id="sharewa" type="button" class="ad-sharebtn">WhatsApp</button><button id="sharevk" type="button" class="ad-sharebtn">ВКонтакте</button><button id="sharemax" type="button" title="Отправить через MAX" class="ad-sharebtn">MAX</button><button id="shareCopy" type="button" class="ad-sharebtn">📋 Скопировать текст</button></div><p class="ad-hint">Telegram, WhatsApp и MAX откроют чат с готовым текстом результата, ВКонтакте — окно публикации на стену.</p></section></main><script>
 (function () {
   var app = document.getElementById("archer-app");
   if (!app) return;
@@ -157,9 +157,10 @@ if (!localStorage.getItem("ad_user")) location.replace("index.html");
   var LINKS = {
     tg: "https://t.me/share/url?url=&text=",
     wa: "https://wa.me/?text=",
-    vk: "https://vk.com/share.php?url=&title="
+    vk: "https://vk.com/share.php?url=&title=",
+    max: "https://max.ru/:share?text="
   };
-  ["tg", "wa", "vk"].forEach(function (key) {
+  ["tg", "wa", "vk", "max"].forEach(function (key) {
     document.getElementById("share" + key).addEventListener("click", function () {
       window.open(LINKS[key] + encodeURIComponent(shareText()), "_blank");
     });
